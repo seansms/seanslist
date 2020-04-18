@@ -1,0 +1,8 @@
+Akamai,DR,Monopoly,Search,Elevaate,OMS,APIM,
+Fred,Taryn,Search,Monopoly password reset,Akamai File Transfer,APIM Rewards,Elevaate,
+INC,CHG,MDCE,DDOPS,DST,ALS,PRB,PTASK,
+Monopoly doc,Akamai File Transfer,INC5614216,PRB0049739,Review KB Article,Health Check,IP Address Ours?,Document infosec bot procedure,identify our PCF apps,DDOPS-7220,INC5472145,INC5596230,Share with Anupama the alerts from the outage,CNC-3149,guest.haggen.com,
+Read,Study,Practice,Write,Dream,
+return key on combobox,tool tip on hover,fix comma issue,launch service now,delete from list,refafctor code,Write,
+www.,
+siobhan,jack,caitlin,www.,
