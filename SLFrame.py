@@ -103,17 +103,17 @@ class SLFrame1 ( wx.Frame ):
 		self.Centre( wx.BOTH )
 		
 		# Connect Events
-		self.m_button1.Bind( wx.EVT_BUTTON, self.addItemToList )
-		self.m_button2.Bind( wx.EVT_BUTTON, self.addItemToList )
-		self.m_button3.Bind( wx.EVT_BUTTON, self.addItemToList )
-		self.m_button4.Bind( wx.EVT_BUTTON, self.addItemToList )
+		self.m_button1.Bind( wx.EVT_BUTTON, self.add_item_to_list )
+		self.m_button2.Bind( wx.EVT_BUTTON, self.add_item_to_list )
+		self.m_button3.Bind( wx.EVT_BUTTON, self.add_item_to_list )
+		self.m_button4.Bind( wx.EVT_BUTTON, self.add_item_to_list )
 	
 	def __del__( self ):
 		pass
 	
 	
 	# Virtual event handlers, overide them in your derived class
-	def addItemToList( self, event ):
+	def add_item_to_list( self, event ):
 		event.Skip()
 	
 	
