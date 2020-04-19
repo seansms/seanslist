@@ -55,13 +55,14 @@ class SLFrameOver(SLFrame1):
 	def add_item_to_list(self, event):
 		btn_id = event.GetEventObject().GetId()
 		cb = self.dc[btn_id]
-		print(cb.GetId())
-		print("count= ", cb.GetCount())
-		print("current_selection= ", cb.GetCurrentSelection())
-		print("insertion_point= ", cb.GetInsertionPoint())
-		print("selection= ", cb.GetSelection())
-		print("string_selection= ", cb.GetStringSelection())
-		print("value= ", cb.GetValue())
+		if __debug__:
+			print(cb.GetId())
+			print("count= ", cb.GetCount())
+			print("current_selection= ", cb.GetCurrentSelection())
+			print("insertion_point= ", cb.GetInsertionPoint())
+			print("selection= ", cb.GetSelection())
+			print("string_selection= ", cb.GetStringSelection())
+			print("value= ", cb.GetValue())
 		new_text = cb.GetValue().strip()
 		if new_text == "":
 			return
@@ -69,7 +70,7 @@ class SLFrameOver(SLFrame1):
 		lb = self.dl[btn_id]
 		lb.InsertItem(0, new_text)
 		print("inserted ", new_text, "into list ctrl ", btn_id)
-		self.reSave()
+		self.re_save()
 
 	def build_lists(self):
 		ll = []

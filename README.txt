@@ -19,7 +19,7 @@ afforded with a trailing comma.  To represent an empty list, use a single comma 
 blank_lists.txt is provided if you want all blanks as a start.  Simply copy the file to
 my_lists.txt before you start.
 
-SeansList 0_4 supports four lists, so your my_list.txt should have eight lines with
+SeansList 0_5 supports four lists, so your my_list.txt should have eight lines with
 at least one comma (,) on each line.
 
 After each new entry to a list, all lists are saved to my_list.txt and two backups
