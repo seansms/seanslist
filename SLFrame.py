@@ -56,7 +56,7 @@ class SLFrame1 ( wx.Frame ):
 		
 		fgSizer3.Add( self.m_comboBox4, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 0 )
 		
-		self.m_button1 = wx.Button( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), 0|wx.NO_BORDER )
+		self.m_button1 = wx.Button( self, wx.ID_ANY, u"push", wx.DefaultPosition, wx.Size( 160,-1 ), 0|wx.NO_BORDER )
 		self.m_button1.SetBackgroundColour( wx.Colour( 255, 128, 128 ) )
 		
 		fgSizer3.Add( self.m_button1, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 0 )
@@ -103,10 +103,18 @@ class SLFrame1 ( wx.Frame ):
 		self.Centre( wx.BOTH )
 		
 		# Connect Events
+		self.m_comboBox1.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
+		self.m_comboBox2.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
+		self.m_comboBox3.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
+		self.m_comboBox4.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
 		self.m_button1.Bind( wx.EVT_BUTTON, self.add_item_to_list )
 		self.m_button2.Bind( wx.EVT_BUTTON, self.add_item_to_list )
 		self.m_button3.Bind( wx.EVT_BUTTON, self.add_item_to_list )
 		self.m_button4.Bind( wx.EVT_BUTTON, self.add_item_to_list )
+		self.m_listCtrl1.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down )
+		self.m_listCtrl2.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down )
+		self.m_listCtrl3.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down )
+		self.m_listCtrl4.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down )
 	
 	def __del__( self ):
 		pass
@@ -114,6 +122,16 @@ class SLFrame1 ( wx.Frame ):
 	
 	# Virtual event handlers, overide them in your derived class
 	def add_item_to_list( self, event ):
+		event.Skip()
+	
+	
+	
+	
+	
+	
+	
+	
+	def on_list_key_down( self, event ):
 		event.Skip()
 	
 	

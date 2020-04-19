@@ -54,6 +54,8 @@ class SLFrameOver(SLFrame1):
 	# Virtual event handlers, override them in your derived class
 	def add_item_to_list(self, event):
 		btn_id = event.GetEventObject().GetId()
+		if btn_id > 2000:  #the event was fired from a ctrl
+			btn_id = btn_id - 2000
 		cb = self.dc[btn_id]
 		if __debug__:
 			print(cb.GetId())
@@ -101,6 +103,8 @@ class SLFrameOver(SLFrame1):
 				break
 			print(ctrl.GetItemText(item, 0))
 			l.append(ctrl.GetItemText(item, 0))
+		if len(l) == 0:
+			l.append("")
 		return l
 
 	def re_save(self):
@@ -108,24 +112,21 @@ class SLFrameOver(SLFrame1):
 		filer = SLFiler()
 		filer.save_values(ll)
 
-	def on_key_up(self, event):
+	def on_list_key_down(self, event):
 		keycode = event.GetKeyCode()
 		if (keycode == wx.WXK_DELETE):
-			self.onDelete()
+			self.on_delete(event)
 		event.Skip()
 
-	def on_delete(self):
-		self.cleanFromList(self.m_listCtrl1)
-
-	def clean_from_list(self, box):
-		l = []
-		nl = []
-		c = box.GetCount()
-		for j in range(c):
-			s = box.GetString(j)
-			l.append(s)
-		selectedItems = box.GetStringSelection()
-		box.clear()
-		for w in l:
-			if w != selectedItems:
-				box.append(w)
+	def on_delete(self, event):
+		ctrl_id = event.GetEventObject().GetId()
+		for ctrl in self.ctrls:
+			i = 0  #safety valve
+			item = 0
+			if ctrl.GetId() == ctrl_id :
+				while item != -1 and i < 100 :
+					item = ctrl.GetFirstSelected(None)
+					if item != -1:
+						ctrl.DeleteItem(item)
+					i = i + 1
+		self.re_save()

@@ -187,7 +187,7 @@
                         <event name="OnSetFocus"></event>
                         <event name="OnSize"></event>
                         <event name="OnText"></event>
-                        <event name="OnTextEnter"></event>
+                        <event name="OnTextEnter">add_item_to_list</event>
                         <event name="OnUpdateUI"></event>
                     </object>
                 </object>
@@ -278,7 +278,7 @@
                         <event name="OnSetFocus"></event>
                         <event name="OnSize"></event>
                         <event name="OnText"></event>
-                        <event name="OnTextEnter"></event>
+                        <event name="OnTextEnter">add_item_to_list</event>
                         <event name="OnUpdateUI"></event>
                     </object>
                 </object>
@@ -369,7 +369,7 @@
                         <event name="OnSetFocus"></event>
                         <event name="OnSize"></event>
                         <event name="OnText"></event>
-                        <event name="OnTextEnter"></event>
+                        <event name="OnTextEnter">add_item_to_list</event>
                         <event name="OnUpdateUI"></event>
                     </object>
                 </object>
@@ -460,7 +460,7 @@
                         <event name="OnSetFocus"></event>
                         <event name="OnSize"></event>
                         <event name="OnText"></event>
-                        <event name="OnTextEnter"></event>
+                        <event name="OnTextEnter">add_item_to_list</event>
                         <event name="OnUpdateUI"></event>
                     </object>
                 </object>
@@ -497,7 +497,7 @@
                         <property name="gripper">0</property>
                         <property name="hidden">0</property>
                         <property name="id">wxID_ANY</property>
-                        <property name="label"></property>
+                        <property name="label">push</property>
                         <property name="max_size"></property>
                         <property name="maximize_button">0</property>
                         <property name="maximum_size"></property>
@@ -905,7 +905,7 @@
                         <event name="OnListItemMiddleClick"></event>
                         <event name="OnListItemRightClick"></event>
                         <event name="OnListItemSelected"></event>
-                        <event name="OnListKeyDown"></event>
+                        <event name="OnListKeyDown">on_list_key_down</event>
                         <event name="OnMiddleDClick"></event>
                         <event name="OnMiddleDown"></event>
                         <event name="OnMiddleUp"></event>
@@ -1010,7 +1010,7 @@
                         <event name="OnListItemMiddleClick"></event>
                         <event name="OnListItemRightClick"></event>
                         <event name="OnListItemSelected"></event>
-                        <event name="OnListKeyDown"></event>
+                        <event name="OnListKeyDown">on_list_key_down</event>
                         <event name="OnMiddleDClick"></event>
                         <event name="OnMiddleDown"></event>
                         <event name="OnMiddleUp"></event>
@@ -1115,7 +1115,7 @@
                         <event name="OnListItemMiddleClick"></event>
                         <event name="OnListItemRightClick"></event>
                         <event name="OnListItemSelected"></event>
-                        <event name="OnListKeyDown"></event>
+                        <event name="OnListKeyDown">on_list_key_down</event>
                         <event name="OnMiddleDClick"></event>
                         <event name="OnMiddleDown"></event>
                         <event name="OnMiddleUp"></event>
@@ -1220,7 +1220,7 @@
                         <event name="OnListItemMiddleClick"></event>
                         <event name="OnListItemRightClick"></event>
                         <event name="OnListItemSelected"></event>
-                        <event name="OnListKeyDown"></event>
+                        <event name="OnListKeyDown">on_list_key_down</event>
                         <event name="OnMiddleDClick"></event>
                         <event name="OnMiddleDown"></event>
                         <event name="OnMiddleUp"></event>
