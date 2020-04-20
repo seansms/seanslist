@@ -7,7 +7,7 @@ class SLControl:
     #File names for your backups limit to 99
     my_lists_backups = ["my_lists2.txt", "my_lists3.txt"]
     #this will substitute a comma in a word
-    comma_substitution_char = ";"
+    comma_substitution_char = ";;"
     #this will perform comma substitution if True
     perform_comma_substitution = True
     #this is a comma, used for word separator
@@ -18,3 +18,4 @@ class SLControl:
     read_from_file = "r"
     #this is the control flag for writing to a file
     write_to_file = "w"
+

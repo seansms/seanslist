@@ -5,4 +5,4 @@ Monopoly doc,Akamai File Transfer,INC5614216,PRB0049739,Review KB Article,Health
 Read,Study,Practice,Write,Dream,
 collapse and grow lists,delete saves to achievements,tool tip on hover,launch service now,
 www.,
-caitlin;jack,siobhan,taryn,george,
+siobhan,taryn,george,
