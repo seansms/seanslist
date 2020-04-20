@@ -20,7 +20,8 @@ blank_lists.txt is provided if you want all blanks as a start.  Simply copy the 
 my_lists.txt before you start.
 
 SeansList 0_5 supports four lists, so your my_list.txt should have eight lines with
-at least one comma (,) on each line.
+at least one comma (,) on each line.  By default, semicolons are translated from the file
+to a comma in the list, allowing for commas in the text.
 
 After each new entry to a list, all lists are saved to my_list.txt and two backups
 are made my_list2.txt and my_list3.txt.  I recommend installing Sean's List in a folder
