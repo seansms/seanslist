@@ -21,6 +21,6 @@ class SLControl:
     #file to save achievements to
     my_achievements_file = "my_achievements.txt"
     #list names
-    list_names = ["Team To-dos ", "Drive Bys ", "SL wants ", "Personal "]
+    list_names = ["  Team To-dos   ", "  Drive Bys   ", "  SL wants   ", "  Personal   "]
     #frame title, i.e. the owner of these lists
     owner_name = "Sean"

@@ -38,7 +38,6 @@ class SLFrameOver(SLFrame1):
 		self.dc = {1: self.m_comboBox1, 2: self.m_comboBox2, 3: self.m_comboBox3, 4: self.m_comboBox4}
 		self.dl = {1: self.m_listCtrl1, 2: self.m_listCtrl2, 3: self.m_listCtrl3, 4: self.m_listCtrl4}
 		for sta in self.statics:
-			print(sta.GetId())
 			sta.SetLabelText(SLControl.list_names[sta.GetId()-101])
 		self.SetTitle(SLControl.owner_name + "'s SuperList")
 
