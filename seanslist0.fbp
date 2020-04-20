@@ -497,7 +497,7 @@
                         <property name="gripper">0</property>
                         <property name="hidden">0</property>
                         <property name="id">wxID_ANY</property>
-                        <property name="label">push</property>
+                        <property name="label"></property>
                         <property name="max_size"></property>
                         <property name="maximize_button">0</property>
                         <property name="maximum_size"></property>
@@ -904,7 +904,7 @@
                         <event name="OnListItemFocused"></event>
                         <event name="OnListItemMiddleClick"></event>
                         <event name="OnListItemRightClick"></event>
-                        <event name="OnListItemSelected"></event>
+                        <event name="OnListItemSelected">on_list_item_selected</event>
                         <event name="OnListKeyDown">on_list_key_down</event>
                         <event name="OnMiddleDClick"></event>
                         <event name="OnMiddleDown"></event>

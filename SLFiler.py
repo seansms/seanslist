@@ -11,20 +11,21 @@ class SLFiler:
 		self.backups = SLControl.my_lists_backups
 
 	def print_words(self):
-		with open(self.filename, 'r') as f:
+		with open(self.filename, SLControl.read_from_file) as f:
 			for line in f:
-				words = line.split(',')
+				words = line.split(SLControl.comma)
 				for w in words:
 					print(w)
 				print()
 
 	def get_my_lists(self):
 		my_lists = []
-		with open(self.filename, 'r') as f:
+		with open(self.filename, SLControl.read_from_file) as f:
 			for line in f:
 				new_list = []
-				words = line.split(',')
+				words = line.split(SLControl.comma)
 				for w in words:
+					w = w.replace(SLControl.comma_substitution_char, SLControl.comma)
 					x = w.strip()
 					if x != "":
 						new_list.append(x)
@@ -58,9 +59,9 @@ class SLFiler:
 		if __debug__:
 			logging.info("creating new my_list")
 
-		with open(self.filename, "w") as f:
+		with open(self.filename, SLControl.write_to_file) as f:
 			for lw in ll:
 				for ww in lw:
-					f.write(ww)
-					f.write(",")
-				f.write("\n")
+					f.write(ww.replace(SLControl.comma, SLControl.comma_substitution_char))
+					f.write(SLControl.comma)
+				f.write(SLControl.file_newline)

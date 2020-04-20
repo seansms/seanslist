@@ -68,10 +68,12 @@ class SLFrameOver(SLFrame1):
 		new_text = cb.GetValue().strip()
 		if new_text == "":
 			return
-		print(new_text)
+		if __debug__:
+			print(new_text)
 		lb = self.dl[btn_id]
 		lb.InsertItem(0, new_text)
-		print("inserted ", new_text, "into list ctrl ", btn_id)
+		if __debug__:
+			print("inserted ", new_text, "into list ctrl ", btn_id)
 		self.re_save()
 
 	def build_lists(self):
@@ -90,7 +92,8 @@ class SLFrameOver(SLFrame1):
 		for j in range(c):
 			s = box.GetString(j).rstrip()
 			if s != "" or s != "\n":
-				print("8", s, "8")
+				if __debug__:
+					print("8", s, "8")
 				out_list.append(s)
 		return out_list
 
@@ -101,7 +104,8 @@ class SLFrameOver(SLFrame1):
 			item = ctrl.GetNextItem(item, wx.LIST_NEXT_ALL, wx.LIST_STATE_DONTCARE)
 			if item == -1:
 				break
-			print(ctrl.GetItemText(item, 0))
+			if __debug__:
+				print(ctrl.GetItemText(item, 0))
 			l.append(ctrl.GetItemText(item, 0))
 		if len(l) == 0:
 			l.append("")
