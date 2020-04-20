@@ -8,6 +8,7 @@ import wx.xrc
 
 from SLFrame import SLFrame1
 from SLFiler import SLFiler
+from SLControl import SLControl
 
 
 class SLFrameOver(SLFrame1):
@@ -29,8 +30,17 @@ class SLFrameOver(SLFrame1):
 		self.m_listCtrl3.SetId(1003)
 		self.m_listCtrl4.SetId(1004)
 		self.ctrls = [self.m_listCtrl1, self.m_listCtrl2, self.m_listCtrl3, self.m_listCtrl4]
+		self.m_staticText1.SetId(101)
+		self.m_staticText2.SetId(102)
+		self.m_staticText3.SetId(103)
+		self.m_staticText4.SetId(104)
+		self.statics = [self.m_staticText1, self.m_staticText2, self.m_staticText3, self.m_staticText4]
 		self.dc = {1: self.m_comboBox1, 2: self.m_comboBox2, 3: self.m_comboBox3, 4: self.m_comboBox4}
 		self.dl = {1: self.m_listCtrl1, 2: self.m_listCtrl2, 3: self.m_listCtrl3, 4: self.m_listCtrl4}
+		for sta in self.statics:
+			print(sta.GetId())
+			sta.SetLabelText(SLControl.list_names[sta.GetId()-101])
+		self.SetTitle(SLControl.owner_name + "'s SuperList")
 
 	def hydrate(self, myLists):
 		i = 0
@@ -92,8 +102,6 @@ class SLFrameOver(SLFrame1):
 		for j in range(c):
 			s = box.GetString(j).rstrip()
 			if s != "" or s != "\n":
-				if __debug__:
-					print("8", s, "8")
 				out_list.append(s)
 		return out_list
 

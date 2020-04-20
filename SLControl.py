@@ -18,4 +18,9 @@ class SLControl:
     read_from_file = "r"
     #this is the control flag for writing to a file
     write_to_file = "w"
-
+    #file to save achievements to
+    my_achievements_file = "my_achievements.txt"
+    #list names
+    list_names = ["Team To-dos ", "Drive Bys ", "SL wants ", "Personal "]
+    #frame title, i.e. the owner of these lists
+    owner_name = "Sean"

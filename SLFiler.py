@@ -9,8 +9,9 @@ class SLFiler:
 	def __init__(self):
 		self.filename = SLControl.my_lists_filename
 		self.backups = SLControl.my_lists_backups
-		self.comma_substitution = SLControl.comma_substitution_char.replace(",", ";")
+		self.comma_substitution_char = SLControl.comma_substitution_char.replace(",", ";")
 
+#unused
 	def print_words(self):
 		with open(self.filename, SLControl.read_from_file) as f:
 			for line in f:
@@ -33,6 +34,7 @@ class SLFiler:
 				my_lists.append(new_list)
 		return my_lists
 
+#unused
 	@staticmethod
 	def print_lists(my_lists):
 		for next_list in my_lists:
@@ -63,6 +65,6 @@ class SLFiler:
 		with open(self.filename, SLControl.write_to_file) as f:
 			for lw in ll:
 				for ww in lw:
-					f.write(ww.replace(SLControl.comma, slef.comma_substitution_char))
+					f.write(ww.replace(SLControl.comma, self.comma_substitution_char))
 					f.write(SLControl.comma)
 				f.write(SLControl.file_newline)
