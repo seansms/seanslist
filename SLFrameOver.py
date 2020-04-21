@@ -15,6 +15,7 @@ class SLFrameOver(SLFrame1):
 
 	def __init__(self, parent):
 		SLFrame1.__init__(self, parent)
+		self.save_flag = 0
 		self.m_button1.SetId(1)
 		self.m_button2.SetId(2)
 		self.m_button3.SetId(3)
@@ -118,15 +119,40 @@ class SLFrameOver(SLFrame1):
 			l.append("")
 		return l
 
+	def on_event_save(self, event):
+		self.save_flag = 1
+
+	def save_if_needed(self, event):
+		if self.save_flag == 1:
+			self.save_flag = 0
+			self.re_save()
+
+	def on_key_up(self, event):
+		if __debug__:
+			print ("on key up")
+		keycode = event.GetKeyCode()
+		if __debug__:
+			print (keycode)
+		if (keycode == 13):
+			self.save_if_needed(event)
+		event.Skip()
+
+	def on_close(self, event):
+		self.save_if_needed(event)
+		event.Skip()
+
 	def re_save(self):
 		ll = self.build_lists()
 		filer = SLFiler()
 		filer.save_values(ll)
 
 	def on_list_key_down(self, event):
+		print ("event key down")
 		keycode = event.GetKeyCode()
 		if (keycode == wx.WXK_DELETE):
 			self.on_delete(event)
+		if (keycode == 13):
+			self.re_save()
 		event.Skip()
 
 	def on_delete(self, event):
@@ -141,3 +167,4 @@ class SLFrameOver(SLFrame1):
 						ctrl.DeleteItem(item)
 					i = i + 1
 		self.re_save()
+

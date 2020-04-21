@@ -84,22 +84,22 @@ class SLFrame1 ( wx.Frame ):
 		
 		fgSizer3.Add( self.m_comboBox4, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 0 )
 		
-		self.m_listCtrl1 = wx.ListCtrl( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 160,400 ), wx.LC_EDIT_LABELS|wx.LC_LIST|wx.LC_NO_HEADER|wx.NO_BORDER )
+		self.m_listCtrl1 = wx.ListCtrl( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 160,400 ), wx.LC_EDIT_LABELS|wx.LC_LIST|wx.LC_NO_HEADER|wx.NO_BORDER|wx.TAB_TRAVERSAL )
 		self.m_listCtrl1.SetBackgroundColour( wx.Colour( 255, 128, 128 ) )
 		
 		fgSizer3.Add( self.m_listCtrl1, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 0 )
 		
-		self.m_listCtrl2 = wx.ListCtrl( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 160,400 ), wx.LC_EDIT_LABELS|wx.LC_LIST|wx.LC_NO_HEADER|wx.NO_BORDER )
+		self.m_listCtrl2 = wx.ListCtrl( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 160,400 ), wx.LC_EDIT_LABELS|wx.LC_LIST|wx.LC_NO_HEADER|wx.NO_BORDER|wx.TAB_TRAVERSAL )
 		self.m_listCtrl2.SetBackgroundColour( wx.Colour( 255, 255, 128 ) )
 		
 		fgSizer3.Add( self.m_listCtrl2, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 0 )
 		
-		self.m_listCtrl3 = wx.ListCtrl( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 160,400 ), wx.LC_EDIT_LABELS|wx.LC_LIST|wx.LC_NO_HEADER|wx.NO_BORDER|wx.TAB_TRAVERSAL|wx.VSCROLL )
+		self.m_listCtrl3 = wx.ListCtrl( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 160,400 ), wx.LC_EDIT_LABELS|wx.LC_LIST|wx.LC_NO_HEADER|wx.NO_BORDER|wx.TAB_TRAVERSAL )
 		self.m_listCtrl3.SetBackgroundColour( wx.Colour( 128, 255, 128 ) )
 		
 		fgSizer3.Add( self.m_listCtrl3, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 0 )
 		
-		self.m_listCtrl4 = wx.ListCtrl( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 160,400 ), wx.LC_EDIT_LABELS|wx.LC_LIST|wx.LC_NO_HEADER|wx.NO_BORDER )
+		self.m_listCtrl4 = wx.ListCtrl( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 160,400 ), wx.LC_EDIT_LABELS|wx.LC_LIST|wx.LC_NO_HEADER|wx.NO_BORDER|wx.TAB_TRAVERSAL )
 		self.m_listCtrl4.SetBackgroundColour( wx.Colour( 128, 255, 255 ) )
 		
 		fgSizer3.Add( self.m_listCtrl4, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 0 )
@@ -131,14 +131,23 @@ class SLFrame1 ( wx.Frame ):
 		self.Centre( wx.BOTH )
 		
 		# Connect Events
+		self.Bind( wx.EVT_CLOSE, self.on_close )
 		self.m_comboBox1.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
 		self.m_comboBox2.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
 		self.m_comboBox3.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
 		self.m_comboBox4.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
+		self.m_listCtrl1.Bind( wx.EVT_KEY_UP, self.on_key_up )
+		self.m_listCtrl1.Bind( wx.EVT_LIST_END_LABEL_EDIT, self.on_event_save )
 		self.m_listCtrl1.Bind( wx.EVT_LIST_ITEM_SELECTED, self.on_list_item_selected )
 		self.m_listCtrl1.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down )
+		self.m_listCtrl2.Bind( wx.EVT_KEY_UP, self.on_key_up )
+		self.m_listCtrl2.Bind( wx.EVT_LIST_END_LABEL_EDIT, self.on_event_save )
 		self.m_listCtrl2.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down )
+		self.m_listCtrl3.Bind( wx.EVT_KEY_UP, self.on_key_up )
+		self.m_listCtrl3.Bind( wx.EVT_LIST_END_LABEL_EDIT, self.on_event_save )
 		self.m_listCtrl3.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down )
+		self.m_listCtrl4.Bind( wx.EVT_KEY_UP, self.on_key_up )
+		self.m_listCtrl4.Bind( wx.EVT_LIST_END_LABEL_EDIT, self.on_event_save )
 		self.m_listCtrl4.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down )
 	
 	def __del__( self ):
@@ -146,17 +155,32 @@ class SLFrame1 ( wx.Frame ):
 	
 	
 	# Virtual event handlers, overide them in your derived class
+	def on_close( self, event ):
+		event.Skip()
+	
 	def add_item_to_list( self, event ):
 		event.Skip()
 	
 	
 	
 	
+	def on_key_up( self, event ):
+		event.Skip()
+	
+	def on_event_save( self, event ):
+		event.Skip()
+	
 	def on_list_item_selected( self, event ):
 		event.Skip()
 	
 	def on_list_key_down( self, event ):
 		event.Skip()
+	
+	
+	
+	
+	
+	
 	
 	
 	
