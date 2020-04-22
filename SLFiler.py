@@ -68,3 +68,19 @@ class SLFiler:
 					f.write(ww.replace(SLControl.comma, self.comma_substitution_char))
 					f.write(SLControl.comma)
 				f.write(SLControl.file_newline)
+		return 0
+
+	def save_values_to_file(self, ll, filename, mode = SLControl.write_to_file):
+		if __debug__:
+			logging.info("saving backups")
+
+		if __debug__:
+			logging.info("creating new file " + filename)
+
+		with open(filename, mode) as f:
+			for ww in ll:
+				f.write(ww.replace(SLControl.comma, self.comma_substitution_char))
+				f.write(SLControl.comma)
+			f.write(SLControl.file_newline)
+		return 0
+

@@ -24,3 +24,5 @@ class SLControl:
     list_names = ["  Team To-dos   ", "  Drive Bys   ", "  SL wants   ", "  Personal   "]
     #frame title, i.e. the owner of these lists
     owner_name = "Sean"
+    #append mode (text)
+    append_mode = "at"

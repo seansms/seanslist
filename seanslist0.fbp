@@ -44,7 +44,7 @@
             <property name="minimum_size"></property>
             <property name="name">SLFrame1</property>
             <property name="pos"></property>
-            <property name="size">651,473</property>
+            <property name="size">651,525</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass"></property>
             <property name="title">Sean&apos;s Lists</property>
@@ -434,7 +434,7 @@
                 </object>
                 <object class="sizeritem" expanded="0">
                     <property name="border">0</property>
-                    <property name="flag">wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</property>
+                    <property name="flag">wxALIGN_CENTER_VERTICAL|wxALIGN_LEFT|wxEXPAND</property>
                     <property name="proportion">0</property>
                     <object class="wxComboBox" expanded="0">
                         <property name="BottomDockable">1</property>
@@ -525,7 +525,7 @@
                 </object>
                 <object class="sizeritem" expanded="0">
                     <property name="border">0</property>
-                    <property name="flag">wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</property>
+                    <property name="flag">wxALIGN_CENTER_VERTICAL|wxALIGN_LEFT|wxEXPAND</property>
                     <property name="proportion">0</property>
                     <object class="wxComboBox" expanded="0">
                         <property name="BottomDockable">1</property>
@@ -616,7 +616,7 @@
                 </object>
                 <object class="sizeritem" expanded="0">
                     <property name="border">0</property>
-                    <property name="flag">wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</property>
+                    <property name="flag">wxALIGN_CENTER_VERTICAL|wxALIGN_LEFT|wxEXPAND</property>
                     <property name="proportion">0</property>
                     <object class="wxComboBox" expanded="0">
                         <property name="BottomDockable">1</property>
@@ -707,7 +707,7 @@
                 </object>
                 <object class="sizeritem" expanded="0">
                     <property name="border">0</property>
-                    <property name="flag">wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</property>
+                    <property name="flag">wxALIGN_CENTER_VERTICAL|wxALIGN_LEFT|wxEXPAND</property>
                     <property name="proportion">0</property>
                     <object class="wxComboBox" expanded="0">
                         <property name="BottomDockable">1</property>
@@ -798,7 +798,7 @@
                 </object>
                 <object class="sizeritem" expanded="0">
                     <property name="border">0</property>
-                    <property name="flag">wxALL|wxALIGN_CENTER_HORIZONTAL</property>
+                    <property name="flag">wxALIGN_LEFT|wxALL|wxEXPAND</property>
                     <property name="proportion">0</property>
                     <object class="wxListCtrl" expanded="0">
                         <property name="BottomDockable">1</property>
@@ -855,7 +855,7 @@
                         <property name="validator_variable"></property>
                         <property name="window_extra_style"></property>
                         <property name="window_name"></property>
-                        <property name="window_style">wxNO_BORDER|wxTAB_TRAVERSAL</property>
+                        <property name="window_style">wxFULL_REPAINT_ON_RESIZE|wxNO_BORDER|wxTAB_TRAVERSAL</property>
                         <event name="OnChar"></event>
                         <event name="OnEnterWindow"></event>
                         <event name="OnEraseBackground"></event>
@@ -903,7 +903,7 @@
                 </object>
                 <object class="sizeritem" expanded="0">
                     <property name="border">0</property>
-                    <property name="flag">wxALL|wxALIGN_CENTER_HORIZONTAL</property>
+                    <property name="flag">wxALIGN_LEFT|wxALL|wxEXPAND</property>
                     <property name="proportion">0</property>
                     <object class="wxListCtrl" expanded="0">
                         <property name="BottomDockable">1</property>
@@ -960,7 +960,7 @@
                         <property name="validator_variable"></property>
                         <property name="window_extra_style"></property>
                         <property name="window_name"></property>
-                        <property name="window_style">wxNO_BORDER|wxTAB_TRAVERSAL</property>
+                        <property name="window_style">wxFULL_REPAINT_ON_RESIZE|wxNO_BORDER|wxTAB_TRAVERSAL</property>
                         <event name="OnChar"></event>
                         <event name="OnEnterWindow"></event>
                         <event name="OnEraseBackground"></event>
@@ -1008,7 +1008,7 @@
                 </object>
                 <object class="sizeritem" expanded="0">
                     <property name="border">0</property>
-                    <property name="flag">wxALL|wxALIGN_CENTER_HORIZONTAL</property>
+                    <property name="flag">wxALIGN_LEFT|wxALL|wxEXPAND</property>
                     <property name="proportion">0</property>
                     <object class="wxListCtrl" expanded="0">
                         <property name="BottomDockable">1</property>
@@ -1065,7 +1065,7 @@
                         <property name="validator_variable"></property>
                         <property name="window_extra_style"></property>
                         <property name="window_name"></property>
-                        <property name="window_style">wxNO_BORDER|wxTAB_TRAVERSAL</property>
+                        <property name="window_style">wxFULL_REPAINT_ON_RESIZE|wxNO_BORDER|wxTAB_TRAVERSAL</property>
                         <event name="OnChar"></event>
                         <event name="OnEnterWindow"></event>
                         <event name="OnEraseBackground"></event>
@@ -1113,7 +1113,7 @@
                 </object>
                 <object class="sizeritem" expanded="0">
                     <property name="border">0</property>
-                    <property name="flag">wxALL|wxALIGN_CENTER_HORIZONTAL</property>
+                    <property name="flag">wxALIGN_LEFT|wxALL|wxEXPAND</property>
                     <property name="proportion">0</property>
                     <object class="wxListCtrl" expanded="0">
                         <property name="BottomDockable">1</property>
@@ -1170,7 +1170,7 @@
                         <property name="validator_variable"></property>
                         <property name="window_extra_style"></property>
                         <property name="window_name"></property>
-                        <property name="window_style">wxNO_BORDER|wxTAB_TRAVERSAL</property>
+                        <property name="window_style">wxFULL_REPAINT_ON_RESIZE|wxNO_BORDER|wxTAB_TRAVERSAL</property>
                         <event name="OnChar"></event>
                         <event name="OnEnterWindow"></event>
                         <event name="OnEraseBackground"></event>
@@ -1247,9 +1247,9 @@
                         <property name="floatable">1</property>
                         <property name="font"></property>
                         <property name="gripper">0</property>
-                        <property name="hidden">1</property>
+                        <property name="hidden">0</property>
                         <property name="id">wxID_ANY</property>
-                        <property name="label">MyButton</property>
+                        <property name="label">Archive</property>
                         <property name="max_size"></property>
                         <property name="maximize_button">0</property>
                         <property name="maximum_size"></property>
@@ -1278,7 +1278,7 @@
                         <property name="window_extra_style"></property>
                         <property name="window_name"></property>
                         <property name="window_style"></property>
-                        <event name="OnButtonClick"></event>
+                        <event name="OnButtonClick">on_click_archive</event>
                         <event name="OnChar"></event>
                         <event name="OnEnterWindow"></event>
                         <event name="OnEraseBackground"></event>
@@ -1337,7 +1337,7 @@
                         <property name="gripper">0</property>
                         <property name="hidden">1</property>
                         <property name="id">wxID_ANY</property>
-                        <property name="label">MyButton</property>
+                        <property name="label">Action 2</property>
                         <property name="max_size"></property>
                         <property name="maximize_button">0</property>
                         <property name="maximum_size"></property>

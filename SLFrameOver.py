@@ -168,3 +168,25 @@ class SLFrameOver(SLFrame1):
 					i = i + 1
 		self.re_save()
 
+	def on_click_archive(self, event):
+		svi = 0  # safety valve
+		l_archive = ["archive"]
+		c = 0
+		for c_ctrl in self.ctrls:
+			c = c + 1
+			c_item = 0
+			while c_item != -1 and svi < 1000:
+				c_item = c_ctrl.GetFirstSelected(None)
+				if c_item != -1:
+					l_archive.append(c_ctrl.GetItemText(c_item))
+					c_ctrl.DeleteItem(c_item)
+				svi = svi + 1
+		self.re_save()
+		self.archive(l_archive, SLControl.owner_name + "_archive.txt")
+
+	def archive(self, archive_list, filename):
+		if __debug__:
+			print("archive")
+		filer = SLFiler()
+		filer.save_values_to_file(archive_list, filename, SLControl.append_mode)
+
