@@ -1,8 +1,5 @@
-Akamai,DR,Monopoly,Search,Elevaate,OMS,APIM,
-RCA Akamai FT2,Akamai File Transfer,APIM Rewards,Elevaate,
-INC,CHG,MDCE,DDOPS,DST,ALS,PRB,PTASK,
-Monopoly doc,Akamai File Transfer,INC5614216,PRB0049739,Review KB Article,Health Check,IP Address Ours?,Document infosec bot procedure,identify our PCF apps,DDOPS-7220,INC5596230,
-Read,Study,Practice,Write,Dream,
-move items from list2list,share a list,collapse and grow lists,
-www.,
-work out,
+My Lists v0.0
+boot up 3,boot up 2,boot up 1,boot up,get medicine,wake up
+check files
+option to delete entry,read lists from other sources,integrate with neo4j,move items from list2list,share a list,collapse and grow lists
+work out

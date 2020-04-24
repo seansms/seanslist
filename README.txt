@@ -1,4 +1,5 @@
-Sean's List runs on Python 3.7
+Sean's SuperList 0_6
+Sean's SuperList runs on Python 3.7
 and WxPython 4.x
 
 Get WxPython: 
@@ -9,21 +10,22 @@ Start Sean's List in the same folder as the seanslist0.py file.
 In windows:
 py seanslist0.py
 
-Prepare my_list.txt
-Each column in SeansList is represented by two comma separated lists.
-The first list represents the combo box options.
-The second list represents values in the list control below.  Each 
-list will work with or without a trailing comma, but will be subsequently
-afforded with a trailing comma.  To represent an empty list, use a single comma (,).
+my_lists.txt file format
+The first line of my_lists.txt must be "My Lists v0.0" or the program will not load your lists
 
-blank_lists.txt is provided if you want all blanks as a start.  Simply copy the file to
-my_lists.txt before you start.
+my_combos.txt file format
+The first line of my_lists.txt must be "My Combos v0.0" or the program will not load your combo boxes
 
-SeansList 0_5 supports four lists, so your my_list.txt should have eight lines with
-at least one comma (,) on each line.  By default, semicolons are translated from the file
+my_achievements.txt file format
+The first line is blank.  Each subsequent line is blank followed by a comma separated list.  Select items in all your lists and click Archive to move items here.
+If you don't want them archived, then just delete with the del or backspace key.
+
+SeansList 0_6 supports four lists.  By default, semicolons are translated from the file
 to a comma in the list, allowing for commas in the text.
 
 After each new entry to a list, all lists are saved to my_list.txt and two backups
-are made my_list2.txt and my_list3.txt.  I recommend installing Sean's List in a folder
+are made my_list2.txt and my_list3.txt.  I recommend installing Sean's SuperList in a folder
 that is copied to the cloud for a backup and to be reached from other locations.
+
+Look at SLControl for options.  Make a backup copy and manually merge before you upgrade.
 

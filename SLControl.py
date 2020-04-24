@@ -21,8 +21,12 @@ class SLControl:
     #file to save achievements to
     my_achievements_file = "my_achievements.txt"
     #list names
-    list_names = ["  Team To-dos   ", "  Drive Bys   ", "  SL wants   ", "  Personal   "]
+    list_names = ["  Team To-dos   ", "  Priority   ", "  Urgent   ", "  Routine   "]
     #frame title, i.e. the owner of these lists
     owner_name = "Sean"
-    #append mode (text)
-    append_mode = "at"
+    #append mode (binary)
+    append_mode = "a"
+    my_combos_filename = "sean_combos.txt"
+    my_lists_version = "My Lists v0.0"
+    my_combos_version = "My Combos v0.0"
+
