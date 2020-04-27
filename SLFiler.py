@@ -9,6 +9,7 @@ class SLFiler:
 	def __init__(self):
 		self.backups = SLControl.my_lists_backups
 		self.comma_substitution_char = SLControl.comma_substitution_char.replace(",", ";")
+		self.main_dict = None
 
 #unused
 	def print_words(self, filename):
@@ -31,7 +32,7 @@ class SLFiler:
 		i = 0
 		with open(filename, SLControl.read_from_file) as f:
 			for line in f:
-				if line.startswith("#"): # is a comment
+				if line.startswith("#"):  # is a comment
 					continue
 				if i == 0:
 					if line.strip() == validation_string:
@@ -63,7 +64,43 @@ class SLFiler:
 				print(word)
 			print()
 
-	def save_values(self, ll, filename, file_version):
+	def save_values(self, changed_dic, filename, file_version):
+		self.backup_files(filename, file_version)
+		if __debug__:
+			logging.info("creating new my_list " + filename)
+		for key in changed_dic:
+			self.main_dict[str(key)] = changed_dic[key]
+		with open(filename, SLControl.write_to_file) as f:
+			f.write("My Lists v0.1")
+			f.write(SLControl.file_newline)
+			for key in self.main_dict:
+				method = "Local,"
+				f.write(method)
+				f.write(str(key))
+				c = len(self.main_dict[key])
+				for w in self.main_dict[key]:
+					f.write(SLControl.comma)
+					f.write(w.replace(SLControl.comma, self.comma_substitution_char))
+				f.write(SLControl.file_newline)
+		return 0
+
+	def backup_files(self, filename, file_version):
+		file_names = []
+		if __debug__:
+			logging.info("creating backups")
+		file_names.insert(0, filename)
+		for file_name in self.backups:
+			file_names.insert(0, file_name)
+		file1 = ""
+		file2 = ""
+		for file_name in file_names:
+			file2 = file1
+			file1 = file_name
+			if file2 != "":
+				shutil.copyfile(file1, file2)
+		return 0
+
+	def save_values_old(self, ll, filename, file_version):
 		file_names = []
 		if __debug__:
 			logging.info("creating backups")
@@ -115,3 +152,16 @@ class SLFiler:
 					next_comma = ","
 		return 0
 
+	def get_main_dict(self):
+		my_lists = self.get_my_lists(SLControl.my_lists_filename, SLControl.my_lists_version)
+		d_my_lists = {}
+		all_list_keys = []
+		# get the retrieval type for each list
+		for l1 in my_lists:
+			if l1.pop(0) != "Local":
+				continue  # for future feature
+			key = l1.pop(0)
+			d_my_lists[key] = l1
+			all_list_keys.append(key)
+		d_my_lists[SLControl.AllList] = all_list_keys
+		return d_my_lists

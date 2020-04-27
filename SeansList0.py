@@ -8,23 +8,12 @@
 import wx
 import logging
 
-from SLControl import SLControl
-from SLFiler import SLFiler
-from SLFrameOver import SLFrameOver
-
-# import lists from mylists.txt
-filer = SLFiler()
-my_lists = filer.get_my_lists(SLControl.my_lists_filename, SLControl.my_lists_version)
-my_combos = filer.get_my_lists(SLControl.my_combos_filename, SLControl.my_combos_version)
-
-if __debug__:
-    logging.info(my_lists)
+from SLLists import SLLists
 
 app = wx.App()
-frame = SLFrameOver(None)
-frame.hydrate_lists(my_lists)
-frame.hydrate_combos(my_combos)
-frame.Show(True)
+
+superlist = SLLists()
+superlist.engage()
 
 app.MainLoop()
 

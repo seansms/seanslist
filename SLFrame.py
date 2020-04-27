@@ -22,12 +22,12 @@ class SLFrame1 ( wx.Frame ):
 		self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
 		self.SetBackgroundColour( wx.Colour( 112, 112, 112 ) )
 		
-		fgSizer3 = wx.FlexGridSizer( 4, 4, 0, 0 )
+		fgSizer3 = wx.FlexGridSizer( 5, 4, 0, 0 )
 		fgSizer3.AddGrowableCol( 0 )
 		fgSizer3.AddGrowableCol( 1 )
 		fgSizer3.AddGrowableCol( 2 )
 		fgSizer3.AddGrowableCol( 3 )
-		fgSizer3.AddGrowableRow( 2 )
+		fgSizer3.AddGrowableRow( 1 )
 		fgSizer3.SetFlexibleDirection( wx.BOTH )
 		fgSizer3.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
 		
@@ -60,29 +60,25 @@ class SLFrame1 ( wx.Frame ):
 		
 		fgSizer3.Add( self.m_staticText4, 0, wx.ALIGN_BOTTOM, 0 )
 		
-		m_comboBox1Choices = []
-		self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, u"Working On", wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox1Choices, 0|wx.NO_BORDER )
-		self.m_comboBox1.SetBackgroundColour( wx.Colour( 255, 128, 128 ) )
+		self.m_textCtrl1 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), wx.TE_NOHIDESEL|wx.TE_PROCESS_ENTER|wx.NO_BORDER )
+		self.m_textCtrl1.SetBackgroundColour( wx.Colour( 255, 236, 236 ) )
 		
-		fgSizer3.Add( self.m_comboBox1, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
+		fgSizer3.Add( self.m_textCtrl1, 0, wx.ALIGN_CENTER, 0 )
 		
-		m_comboBox2Choices = []
-		self.m_comboBox2 = wx.ComboBox( self, wx.ID_ANY, u"Follow Up", wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox2Choices, 0|wx.NO_BORDER )
-		self.m_comboBox2.SetBackgroundColour( wx.Colour( 255, 255, 128 ) )
+		self.m_textCtrl2 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), wx.TE_NO_VSCROLL|wx.TE_PROCESS_ENTER|wx.NO_BORDER )
+		self.m_textCtrl2.SetBackgroundColour( wx.Colour( 255, 255, 225 ) )
 		
-		fgSizer3.Add( self.m_comboBox2, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
+		fgSizer3.Add( self.m_textCtrl2, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 0 )
 		
-		m_comboBox3Choices = []
-		self.m_comboBox3 = wx.ComboBox( self, wx.ID_ANY, u"Goals", wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox3Choices, 0|wx.NO_BORDER )
-		self.m_comboBox3.SetBackgroundColour( wx.Colour( 128, 255, 128 ) )
+		self.m_textCtrl3 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), wx.TE_NO_VSCROLL|wx.TE_PROCESS_ENTER|wx.NO_BORDER )
+		self.m_textCtrl3.SetBackgroundColour( wx.Colour( 236, 255, 236 ) )
 		
-		fgSizer3.Add( self.m_comboBox3, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
+		fgSizer3.Add( self.m_textCtrl3, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 0 )
 		
-		m_comboBox4Choices = []
-		self.m_comboBox4 = wx.ComboBox( self, wx.ID_ANY, u"Favorites", wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox4Choices, 0|wx.NO_BORDER )
-		self.m_comboBox4.SetBackgroundColour( wx.Colour( 128, 255, 255 ) )
+		self.m_textCtrl4 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), wx.TE_NO_VSCROLL|wx.TE_PROCESS_ENTER|wx.NO_BORDER )
+		self.m_textCtrl4.SetBackgroundColour( wx.Colour( 236, 255, 255 ) )
 		
-		fgSizer3.Add( self.m_comboBox4, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
+		fgSizer3.Add( self.m_textCtrl4, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 0 )
 		
 		self.m_listCtrl1 = wx.ListCtrl( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 160,400 ), wx.LC_EDIT_LABELS|wx.LC_LIST|wx.LC_NO_HEADER|wx.FULL_REPAINT_ON_RESIZE|wx.NO_BORDER|wx.TAB_TRAVERSAL )
 		self.m_listCtrl1.SetBackgroundColour( wx.Colour( 255, 128, 128 ) )
@@ -103,6 +99,30 @@ class SLFrame1 ( wx.Frame ):
 		self.m_listCtrl4.SetBackgroundColour( wx.Colour( 128, 255, 255 ) )
 		
 		fgSizer3.Add( self.m_listCtrl4, 0, wx.ALIGN_LEFT|wx.ALL|wx.EXPAND, 0 )
+		
+		m_comboBox1Choices = []
+		self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox1Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox1.SetBackgroundColour( wx.Colour( 255, 128, 128 ) )
+		
+		fgSizer3.Add( self.m_comboBox1, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
+		
+		m_comboBox2Choices = []
+		self.m_comboBox2 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox2Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox2.SetBackgroundColour( wx.Colour( 255, 255, 128 ) )
+		
+		fgSizer3.Add( self.m_comboBox2, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
+		
+		m_comboBox3Choices = []
+		self.m_comboBox3 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox3Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox3.SetBackgroundColour( wx.Colour( 128, 255, 128 ) )
+		
+		fgSizer3.Add( self.m_comboBox3, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
+		
+		m_comboBox4Choices = []
+		self.m_comboBox4 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox4Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox4.SetBackgroundColour( wx.Colour( 128, 255, 255 ) )
+		
+		fgSizer3.Add( self.m_comboBox4, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
 		
 		self.m_button1 = wx.Button( self, wx.ID_ANY, u"Archive", wx.DefaultPosition, wx.DefaultSize, 0 )
 		fgSizer3.Add( self.m_button1, 0, wx.ALL, 5 )
@@ -130,14 +150,13 @@ class SLFrame1 ( wx.Frame ):
 		
 		# Connect Events
 		self.Bind( wx.EVT_CLOSE, self.on_close )
-		self.m_comboBox1.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
-		self.m_comboBox2.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
-		self.m_comboBox3.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
-		self.m_comboBox4.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
+		self.m_textCtrl1.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
+		self.m_textCtrl2.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
+		self.m_textCtrl3.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
+		self.m_textCtrl4.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
 		self.m_listCtrl1.Bind( wx.EVT_KEY_UP, self.on_key_up )
-		self.m_listCtrl1.Bind( wx.EVT_LIST_END_LABEL_EDIT, self.on_event_save )
-		self.m_listCtrl1.Bind( wx.EVT_LIST_ITEM_SELECTED, self.on_list_item_selected )
-		self.m_listCtrl1.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down )
+		self.m_listCtrl1.Bind( wx.EVT_LIST_END_LABEL_EDIT, self.on_event_save1 )
+		self.m_listCtrl1.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down1 )
 		self.m_listCtrl2.Bind( wx.EVT_KEY_UP, self.on_key_up )
 		self.m_listCtrl2.Bind( wx.EVT_LIST_END_LABEL_EDIT, self.on_event_save )
 		self.m_listCtrl2.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down )
@@ -147,6 +166,10 @@ class SLFrame1 ( wx.Frame ):
 		self.m_listCtrl4.Bind( wx.EVT_KEY_UP, self.on_key_up )
 		self.m_listCtrl4.Bind( wx.EVT_LIST_END_LABEL_EDIT, self.on_event_save )
 		self.m_listCtrl4.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down )
+		self.m_comboBox1.Bind( wx.EVT_COMBOBOX, self.on_combo_box )
+		self.m_comboBox2.Bind( wx.EVT_COMBOBOX, self.on_combo_box )
+		self.m_comboBox3.Bind( wx.EVT_COMBOBOX, self.on_combo_box )
+		self.m_comboBox4.Bind( wx.EVT_COMBOBOX, self.on_combo_box )
 		self.m_button1.Bind( wx.EVT_BUTTON, self.on_click_archive )
 	
 	def __del__( self ):
@@ -166,10 +189,14 @@ class SLFrame1 ( wx.Frame ):
 	def on_key_up( self, event ):
 		event.Skip()
 	
-	def on_event_save( self, event ):
+	def on_event_save1( self, event ):
 		event.Skip()
 	
-	def on_list_item_selected( self, event ):
+	def on_list_key_down1( self, event ):
+		event.Skip()
+	
+	
+	def on_event_save( self, event ):
 		event.Skip()
 	
 	def on_list_key_down( self, event ):
@@ -180,6 +207,9 @@ class SLFrame1 ( wx.Frame ):
 	
 	
 	
+	
+	def on_combo_box( self, event ):
+		event.Skip()
 	
 	
 	
