@@ -5,7 +5,7 @@ class SLControl:
     #File name for your list
     my_lists_filename = "my_lists.txt"
     #File names for your backups limit to 99
-    my_lists_backups = ["my_lists2.txt", "my_lists3.txt", "my_lists4.txt"]
+    my_lists_backups = ["my_lists2.txt", "my_lists3.txt"]
     #this will substitute a comma in a word
     comma_substitution_char = ";"
     #this will perform comma substitution if True
