@@ -885,7 +885,7 @@
                         <event name="OnListItemMiddleClick"></event>
                         <event name="OnListItemRightClick"></event>
                         <event name="OnListItemSelected"></event>
-                        <event name="OnListKeyDown">on_list_key_down1</event>
+                        <event name="OnListKeyDown">on_list_key_down</event>
                         <event name="OnMiddleDClick"></event>
                         <event name="OnMiddleDown"></event>
                         <event name="OnMiddleUp"></event>

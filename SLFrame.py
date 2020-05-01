@@ -156,7 +156,7 @@ class SLFrame1 ( wx.Frame ):
 		self.m_textCtrl4.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
 		self.m_listCtrl1.Bind( wx.EVT_KEY_UP, self.on_key_up )
 		self.m_listCtrl1.Bind( wx.EVT_LIST_END_LABEL_EDIT, self.on_event_save1 )
-		self.m_listCtrl1.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down1 )
+		self.m_listCtrl1.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down )
 		self.m_listCtrl2.Bind( wx.EVT_KEY_UP, self.on_key_up )
 		self.m_listCtrl2.Bind( wx.EVT_LIST_END_LABEL_EDIT, self.on_event_save )
 		self.m_listCtrl2.Bind( wx.EVT_LIST_KEY_DOWN, self.on_list_key_down )
@@ -192,15 +192,13 @@ class SLFrame1 ( wx.Frame ):
 	def on_event_save1( self, event ):
 		event.Skip()
 	
-	def on_list_key_down1( self, event ):
+	def on_list_key_down( self, event ):
 		event.Skip()
 	
 	
 	def on_event_save( self, event ):
 		event.Skip()
 	
-	def on_list_key_down( self, event ):
-		event.Skip()
 	
 	
 	

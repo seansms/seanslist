@@ -1,9 +1,9 @@
 My Lists v0.1
 Local,My Lists,Stand Up,Old Work,States,Banners
-Local,Stand Up,call client,boot up,get medicine,wake up
+Local,Stand Up,test,call client,boot up,get medicine,wake up
 Local,New Work,check files
-Local,Old Work,Make some lists readonly,prevent bad things from happening,undo,read lists from other sources,integrate with neo4j,move items from list2list,share a list,collapse and grow lists
-Local,Banners,Randalls,Haggen,Tom Thumb,Carrs,Acme Markets,Safeway,Albertsons,Randalls,Shaws,Star Market,United,Pavilions,Jewel Osco
+Local,Old Work,make text boxes grow,Make some lists readonly,prevent bad things from happening,undo,read lists from other sources,integrate with neo4j,move items from list2list,share a list,collapse and grow lists
+Local,Banners,Vons,Randalls,Haggen,Tom Thumb,Carrs,Acme Markets,Safeway,Albertsons,Randalls,Shaws,Star Market,United,Pavilions,Jewel Osco
 Local,Regions,West,East,NorCal,SoCal,Intermountain,Phoenix
 Local,States,Maryland,Alabama,Arkansas,Alaska,Arizona,California,Nevada,Washington,Idaho,Montana,Colorado,Utah,New Mexico,Texas,Nebraska,Oklahoma,Kansas,Wyoming,South Dakota,North Dakota,Iowa,Missouri,Lousiana,Minnesota,Wisconsin,Illinois,Ohio,Indiana,Michigan,Kentucky,Tennessee,Mississippi,Florida,Georgia,South Carolina,North Carolina,Virginia,West Virginia,Delaware,Pennsylvania,New York,New Jersey,Connecticut,Rhode Island,Massachusetts,Maine,Vermont,New Hampshire,Hawaii,Oregon
 Local,Headquarters,Colorado,Boise,Pleasanton,Phoenix
