@@ -198,7 +198,26 @@ class SLFrameOver(SLFrame1):
 			self.on_delete(event)
 		if keycode == 13:
 			self.re_save_mylists(self.ctrls)
+		if keycode == 67:
+			self.on_copy(event)
 		event.Skip()
+
+	def on_copy(self, event):
+		if __debug__:
+			print("on copy")
+		self.clip_it(self.get_selected_text(event))
+
+	def get_selected_text(self, event):
+		c = event.GetEventObject()
+		x = c.GetItemText(c.GetFirstSelected())
+		return x
+
+	def clip_it(self, set_text):
+		clipdata = wx.TextDataObject()
+		clipdata.SetText(set_text)
+		wx.TheClipboard.Open()
+		wx.TheClipboard.SetData(clipdata)
+		wx.TheClipboard.Close()
 
 	def on_delete(self, event):
 		ctrl_id = event.GetEventObject().GetId()
