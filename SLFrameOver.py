@@ -209,7 +209,13 @@ class SLFrameOver(SLFrame1):
 
 	def get_selected_text(self, event):
 		c = event.GetEventObject()
-		x = c.GetItemText(c.GetFirstSelected())
+		j = c.GetFirstSelected()
+		x = c.GetItemText(j)
+		isel = c.GetSelectedItemCount()
+		for i in range(1, isel):
+			x = x + ","
+			j = c.GetNextSelected(j)
+			x = x + c.GetItemText(j)
 		return x
 
 	def clip_it(self, set_text):
