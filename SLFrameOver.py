@@ -242,7 +242,7 @@ class SLFrameOver(SLFrame1):
 		event.Skip()
 
 	def on_click_archive(self, event):
-		achievements_filename = SLControl.owner_name + "_" + SLControl.my_achievements_file
+		achievements_filename = SLControl.my_achievements_file
 		svi = 0  # safety valve
 		l_archive = []
 		the_latest = get_last_date_archived(achievements_filename)

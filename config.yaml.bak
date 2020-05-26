@@ -1,0 +1,16 @@
+- my_lists_filename: sean_lists.txt
+- my_lists_backups:
+  - sean_lists2.txt
+  - sean_lists3.txt
+  - sean_lists4.txt
+- comma_substitution_char: ;
+- perform_comma_substitution: true
+- comma: ','
+- file_newline: \n
+- read_from_file: r
+- write_to_file: w
+- my_achievements_file: sean_achievements.txt
+- owner_name: sean
+- append_mode: a
+- my_lists_version: My Lists v0.1
+- AllList: all_list_names
