@@ -6,7 +6,6 @@
 - comma_substitution_char: ;
 - perform_comma_substitution: true
 - comma: ','
-- file_newline: \n
 - read_from_file: r
 - write_to_file: w
 - my_achievements_file: sean_achievements.txt

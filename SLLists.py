@@ -1,12 +1,7 @@
-import wx
 import logging
-import shutil
 
-from SLControl import SLControl
 from SLFiler import SLFiler
 from SLFrameOver import SLFrameOver
-
-from SLControl import SLControl
 
 
 class SLLists:

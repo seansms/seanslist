@@ -6,7 +6,6 @@
 #########################
 
 import wx
-import logging
 
 from SLLists import SLLists
 
