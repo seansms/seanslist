@@ -13,3 +13,17 @@
 - append_mode: a
 - my_lists_version: My Lists v0.1
 - AllList: all_list_names
+- color_lists_pallette: default_pallette
+- available_pallettes:
+  - default_pallette
+  - grey_pallette
+- default_pallette:
+  - FF8080
+  - FFFF80
+  - 80FF80
+  - 80FFFF
+- grey_pallette:
+  - FEFEFE
+  - '808080'
+  - F0F0F0
+  - '999999'

@@ -1,20 +1,4 @@
-#    Sean's SuperList - A to-do and general list manager.
-#    Copyright (C) 2020  Sean Shannon
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*- 
 
 ###########################################################################
 ## Python code generated with wxFormBuilder (version Jun 17 2015)
@@ -72,6 +56,7 @@ class SLFrame1 ( wx.Frame ):
 		self.m_staticText4 = wx.StaticText( self, wx.ID_ANY, u"MyLabel ", wx.DefaultPosition, wx.DefaultSize, 0|wx.NO_BORDER )
 		self.m_staticText4.Wrap( -1 )
 		self.m_staticText4.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), 70, 90, 92, False, wx.EmptyString ) )
+		self.m_staticText4.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
 		self.m_staticText4.SetBackgroundColour( wx.Colour( 128, 255, 255 ) )
 		
 		fgSizer3.Add( self.m_staticText4, 0, wx.ALIGN_BOTTOM, 0 )
@@ -117,25 +102,30 @@ class SLFrame1 ( wx.Frame ):
 		fgSizer3.Add( self.m_listCtrl4, 0, wx.ALIGN_LEFT|wx.ALL|wx.EXPAND, 0 )
 		
 		m_comboBox1Choices = []
-		self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox1Choices, wx.CB_READONLY|wx.NO_BORDER )
-		self.m_comboBox1.SetBackgroundColour( wx.Colour( 255, 128, 128 ) )
-		
+		self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, u"switch list here", wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox1Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox1.SetSelection( 0 )
+		self.m_comboBox1.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
+		self.m_comboBox1.SetBackgroundColour( wx.Colour( "#FF8080" ) )
+
 		fgSizer3.Add( self.m_comboBox1, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
 		
 		m_comboBox2Choices = []
-		self.m_comboBox2 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox2Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox2 = wx.ComboBox( self, wx.ID_ANY, u"switch list here", wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox2Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox2.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
 		self.m_comboBox2.SetBackgroundColour( wx.Colour( 255, 255, 128 ) )
 		
 		fgSizer3.Add( self.m_comboBox2, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
 		
 		m_comboBox3Choices = []
-		self.m_comboBox3 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox3Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox3 = wx.ComboBox( self, wx.ID_ANY, u"change list here", wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox3Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox3.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
 		self.m_comboBox3.SetBackgroundColour( wx.Colour( 128, 255, 128 ) )
 		
 		fgSizer3.Add( self.m_comboBox3, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
 		
 		m_comboBox4Choices = []
-		self.m_comboBox4 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox4Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox4 = wx.ComboBox( self, wx.ID_ANY, u"change list here", wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox4Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox4.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
 		self.m_comboBox4.SetBackgroundColour( wx.Colour( 128, 255, 255 ) )
 		
 		fgSizer3.Add( self.m_comboBox4, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )

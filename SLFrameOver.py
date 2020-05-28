@@ -106,18 +106,48 @@ def build_list_of_lists_from_ctrls(ctrls):
 		i = i + 1
 	return ll
 
-
-def re_save_mylists_old(ctrls):
-	ll = build_list_of_lists_from_ctrls(ctrls)
-	filer = SLFiler()
-	filer.save_values(ll, SLControl.my_lists_filename, SLControl.my_lists_version)
-	return 0
-
-
 class SLFrameOver(SLFrame1):
 
 	def __init__(self, parent):
+
 		SLFrame1.__init__(self, parent)
+		# Color scheme
+		colors = SLControl.color_scheme
+		#not configure-able
+#		self.SetBackgroundColour( wx.Colour( 112, 112, 112 ) )
+#		self.m_staticText1.SetForegroundColour(wx.Colour(0, 0, 0))
+#		self.m_staticText2.SetForegroundColour(wx.Colour(0, 0, 0))
+#		self.m_staticText3.SetForegroundColour(wx.Colour(0, 0, 0))
+#		self.m_staticText4.SetForegroundColour(wx.Colour(0, 0, 0))
+#		self.m_comboBox1.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
+#		self.m_comboBox2.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
+#		self.m_comboBox3.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
+#		self.m_comboBox4.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
+#		self.m_listCtrl1.SetForegroundColour( wx.Colour( 0, 0, 0 ))
+#		self.m_textCtrl1.SetBackgroundColour( wx.Colour( 255, 236, 236 ) )
+#		self.m_textCtrl1.SetForegroundColour( wx.Colour( 255, 236, 236 ) )
+
+		#configure-able
+		#color 0
+		self.m_staticText1.SetBackgroundColour( wx.Colour( colors[0] ) )
+		self.m_listCtrl1.SetBackgroundColour( wx.Colour( colors[0] ))
+		self.m_comboBox1.SetBackgroundColour( wx.Colour( colors[0] ) )
+		#color 1
+		self.m_staticText2.SetBackgroundColour( wx.Colour( colors[1] ) )
+		self.m_listCtrl2.SetBackgroundColour( wx.Colour( colors[1] ))
+		self.m_comboBox2.SetBackgroundColour( wx.Colour( colors[1] ) )
+		#color 2
+		self.m_staticText3.SetBackgroundColour( wx.Colour( colors[2] ) )
+		self.m_listCtrl3.SetBackgroundColour( wx.Colour( colors[2] ))
+		self.m_comboBox3.SetBackgroundColour( wx.Colour( colors[2] ) )
+		#color 3
+		self.m_staticText4.SetBackgroundColour( wx.Colour( colors[3] ) )
+		self.m_listCtrl4.SetBackgroundColour( wx.Colour( colors[3] ))
+		self.m_comboBox4.SetBackgroundColour( wx.Colour( colors[3] ) )
+
+		self.Layout()
+
+
 		self.save_flag = 0
 		self.m_button1.SetId(1)
 		self.m_button2.SetId(2)
@@ -158,8 +188,12 @@ class SLFrameOver(SLFrame1):
 			displayed_lists.append(dic[d])
 		hydrate_object(self.ctrls, displayed_lists, False)
 
-	def hydrate_combos(self, my_lists):
+	def hydrate_combos(self, my_lists, displayed):
 		hydrate_object(self.combos, my_lists, True)
+		i = 0
+		for m in displayed:
+			self.combos[i].SetStringSelection(m)
+			i = i + 1
 
 	def __del__(self):
 		pass
@@ -323,3 +357,5 @@ class SLFrameOver(SLFrame1):
 		hydrate_ctrl(controls[list_id - 1], new_list)
 		self.re_save_mylists(controls)
 		event.Skip()
+
+

@@ -18,7 +18,7 @@ import logging
 
 from SLFiler import SLFiler
 from SLFrameOver import SLFrameOver
-
+from SLControl import SLControl
 
 class SLLists:
 
@@ -36,7 +36,7 @@ class SLLists:
         filer = SLFiler()
         filer.main_dict = filer.get_main_dict()
 
-        k = filer.main_dict["all_list_names"]
+        k = filer.main_dict[SLControl.AllList]
         my_combos = [k, k, k, k]
         my_displayed_list_names = filer.main_dict["My Lists"]
 
@@ -48,7 +48,7 @@ class SLLists:
         self.frame = SLFrameOver(None)
         self.frame.filer = filer
         self.frame.hydrate_lists(filer.main_dict, my_displayed_list_names)
-        self.frame.hydrate_combos(my_combos)
+        self.frame.hydrate_combos(my_combos, my_displayed_list_names)
         self.frame.hydrate_statics(my_displayed_list_names)
 
         self.frame.Show(True)

@@ -55,5 +55,17 @@ class SLControl:
     append_mode = _cache["append_mode"]
     my_lists_version = _cache["my_lists_version"]
     AllList = _cache["AllList"]
+    colorListsPalette = _cache["color_lists_palette"]
+    available_palette_list = _cache["available_palettes"]
+    defaultPalette = _cache["default_palette"]
 
+    availablePalettes = {}
+    for p in available_palette_list:
+        availablePalettes[p] = _cache[p]
+
+    try:
+        p = availablePalettes[colorListsPalette]
+    except:
+        p = _cache_list[defaultPalette]
+    color_scheme = p
 

@@ -57,7 +57,13 @@ dict_file = [my_file,
 # my lists file format version
              {'my_lists_version' :  "My Lists v0.1"},
 # all lists name in the mylists file
-             {'AllList' : "all_list_names" }]
+             {'AllList' : "all_list_names" },
+# the colors of the lists
+            {'color_lists_palette': 'default_palette'},
+# palettes
+            {'available_palettes': ['default_palette', 'grey_palette']},
+            {'default_palette': ['FF8080', 'FFFF80', '80FF80', '80FFFF']},
+            {'grey_palette': ['FEFEFE', '808080', 'F0F0F0', '999999']}]
 
 with open(r'config.yaml', 'w') as file:
     documents = yaml.dump(dict_file, file)
