@@ -13,17 +13,95 @@
 - append_mode: a
 - my_lists_version: My Lists v0.1
 - AllList: all_list_names
-- color_lists_palette: hotdog_palette
+- color_lists_palette: george_palette
 - available_palettes:
   - default_palette
   - hotdog_palette
+  - fresh_palette
+  - pro_palette
+  - earth_palette
+  - crisp_palette
+  - system_palette
+  - grey_palette
+  - george_palette
 - default_palette:
-  - "#FF8080"
-  - "#FFFF80"
-  - "#80FF80"
-  - "#80FFFF"
+  - '#375E97'
+  - '#FB6542'
+  - '#FFBB00'
+  - '#3F681C'
+  - white
+  - black
+  - black
+  - white
+- system_palette:
+  - '#FF8080'
+  - '#FFFF80'
+  - '#80FF80'
+  - '#80FFFF'
+  - black
+  - black
+  - black
+  - black
+- grey_palette:
+  - '#F0F0F0'
+  - '#A0A0A0'
+  - '#808080'
+  - '#303030'
+  - '#010101'
+  - '#010101'
+  - '#010101'
+  - '#F0F0F0'
 - hotdog_palette:
-  - "red"
-  - "yellow"
-  - "green"
-  - "blue"
+  - red
+  - yellow
+  - white
+  - blue
+  - black
+  - black
+  - black
+  - white
+- fresh_palette:
+  - '#F98866'
+  - '#FF420E'
+  - '#80BD9E'
+  - '#89DA59'
+  - black
+  - black
+  - black
+  - black
+- pro_palette:
+  - '#90AFC5'
+  - '#336B87'
+  - '#2A3132'
+  - '#763626'
+  - white
+  - white
+  - white
+  - white
+- earth_palette:
+  - '#46211A'
+  - '#693D3D'
+  - '#BA5536'
+  - '#A43820'
+  - white
+  - white
+  - white
+  - white
+- crisp_palette:
+  - '#505160'
+  - '#68829E'
+  - '#AEBD38'
+  - '#598234'
+  - white
+  - white
+  - white
+  - white
+- george_palette:
+  - '#F4CC70'
+  - '#DE7A22'
+  - '#20948B'
+  - '#6AB187'
+  - black
+  - white
+  - white
+  - black

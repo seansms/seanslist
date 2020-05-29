@@ -124,7 +124,7 @@ class SLFrameOver(SLFrame1):
 		self.m_comboBox3.SetForegroundColour( wx.Colour( colors[6]) )
 		self.m_comboBox4.SetForegroundColour( wx.Colour( colors[7]) )
 		self.m_listCtrl1.SetForegroundColour( wx.Colour( colors[4]))
-		self.m_listCtrl2.SetBackgroundColour( wx.Colour( colors[5] ) )
+		self.m_listCtrl2.SetForegroundColour( wx.Colour( colors[5] ) )
 		self.m_listCtrl3.SetForegroundColour( wx.Colour( colors[6] ) )
 		self.m_listCtrl4.SetForegroundColour( wx.Colour( colors[7] ) )
 
