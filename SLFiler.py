@@ -85,18 +85,18 @@ class SLFiler:
 		if __debug__:
 			logging.info("creating new my_list " + filename)
 		for key in changed_dic:
-			self.main_dict[str(key)] = changed_dic[key]
+			self.main_dict[str(key).strip()] = changed_dic[key]
 		with open(filename, SLControl.write_to_file) as f:
 			f.write("My Lists v0.1")
 			f.write(SLControl.file_newline)
 			for key in self.main_dict:
 				method = "Local,"
 				f.write(method)
-				f.write(str(key))
+				f.write(str(key).strip())
 				c = len(self.main_dict[key])
 				for w in self.main_dict[key]:
 					f.write(SLControl.comma)
-					f.write(w.replace(SLControl.comma, self.comma_substitution_char))
+					f.write(w.replace(SLControl.comma, self.comma_substitution_char).strip())
 				f.write(SLControl.file_newline)
 		return 0
 
@@ -116,38 +116,6 @@ class SLFiler:
 				shutil.copyfile(file1, file2)
 		return 0
 
-	def save_values_old(self, ll, filename, file_version):
-		file_names = []
-		if __debug__:
-			logging.info("creating backups")
-		file_names.insert(0, filename)
-		for file_name in self.backups:
-			file_names.insert(0, file_name)
-		file1 = ""
-		file2 = ""
-		for file_name in file_names:
-			file2 = file1
-			file1 = file_name
-			if file2 != "":
-				shutil.copyfile(file1, file2)
-
-		if __debug__:
-			logging.info("creating new my_list " + filename)
-
-		with open(filename, SLControl.write_to_file) as f:
-			f.write(file_version + SLControl.file_newline)
-			for lw in ll:
-				c = len(lw)
-				c = c - 1
-				for ww in lw:
-					#substitute for commas
-					f.write(ww.replace(SLControl.comma, self.comma_substitution_char))
-					if c > 0:  # if not the last word, put a comma
-						f.write(SLControl.comma)
-						c = c - 1
-				f.write(SLControl.file_newline)
-		return 0
-
 	def append_values_to_file(self, l, filename, mode = SLControl.append_mode):
 		if __debug__:
 			logging.info("saving backups")
@@ -162,6 +130,7 @@ class SLFiler:
 					f.write(SLControl.file_newline)
 					next_comma = ""
 				else:
+					word = word.strip()
 					if next_comma != "":
 						f.write(SLControl.comma)
 					f.write(word.replace(SLControl.comma, self.comma_substitution_char))
