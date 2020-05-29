@@ -62,8 +62,14 @@ dict_file = [my_file,
             {'color_lists_palette': 'default_palette'},
 # palettes
             {'available_palettes': ['default_palette', 'grey_palette']},
-            {'default_palette': ['FF8080', 'FFFF80', '80FF80', '80FFFF']},
-            {'grey_palette': ['FEFEFE', '808080', 'F0F0F0', '999999']}]
+            {'default_palette': ['#375E97', '#FB6542', '#FFBB00', '#3F681C','white', 'black', 'black', 'white']},
+             {'system_palette': ['#FF8080', '#FFFF80', '#80FF80', '#80FFFF','black', 'black', 'black', 'black']},
+             {'grey_palette': ['#F0F0F0', '#A0A0A0', '#808080', '#303030', '#010101', '#010101', '#010101', '#F0F0F0']},
+             {'hotdog_palette': ['red', 'yellow', 'white', 'blue', 'black', 'black', 'black', 'white']},
+             {'fresh_palette': ['#F98866', '#FF420E', '#80BD9E', '#89DA59', 'black', 'black', 'black', 'black']},
+             {'pro_palette': ['#90AFC5', '#336B87', '#2A3132', '#763626', 'white', 'white', 'white', 'white']},
+             {'earth_palette': ['#46211A', '#693D3D', '#BA5536', '#A43820', 'white', 'white', 'white', 'white']},
+             {'crisp_palette': ['#505160', '#68829E', '#AEBD38', '#598234', 'white', 'white', 'white', 'white']}]
 
 with open(r'config.yaml', 'w') as file:
     documents = yaml.dump(dict_file, file)

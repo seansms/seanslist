@@ -113,19 +113,20 @@ class SLFrameOver(SLFrame1):
 		SLFrame1.__init__(self, parent)
 		# Color scheme
 		colors = SLControl.color_scheme
-		#not configure-able
+		#foregraound colors
 #		self.SetBackgroundColour( wx.Colour( 112, 112, 112 ) )
-#		self.m_staticText1.SetForegroundColour(wx.Colour(0, 0, 0))
-#		self.m_staticText2.SetForegroundColour(wx.Colour(0, 0, 0))
-#		self.m_staticText3.SetForegroundColour(wx.Colour(0, 0, 0))
-#		self.m_staticText4.SetForegroundColour(wx.Colour(0, 0, 0))
-#		self.m_comboBox1.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
-#		self.m_comboBox2.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
-#		self.m_comboBox3.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
-#		self.m_comboBox4.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
-#		self.m_listCtrl1.SetForegroundColour( wx.Colour( 0, 0, 0 ))
-#		self.m_textCtrl1.SetBackgroundColour( wx.Colour( 255, 236, 236 ) )
-#		self.m_textCtrl1.SetForegroundColour( wx.Colour( 255, 236, 236 ) )
+		self.m_staticText1.SetForegroundColour(wx.Colour( colors[4] ))
+		self.m_staticText2.SetForegroundColour(wx.Colour(colors[5]))
+		self.m_staticText3.SetForegroundColour(wx.Colour(colors[6]))
+		self.m_staticText4.SetForegroundColour(wx.Colour(colors[7]))
+		self.m_comboBox1.SetForegroundColour( wx.Colour( colors[4] ) )
+		self.m_comboBox2.SetForegroundColour( wx.Colour( colors[5]) )
+		self.m_comboBox3.SetForegroundColour( wx.Colour( colors[6]) )
+		self.m_comboBox4.SetForegroundColour( wx.Colour( colors[7]) )
+		self.m_listCtrl1.SetForegroundColour( wx.Colour( colors[4]))
+		self.m_listCtrl2.SetBackgroundColour( wx.Colour( colors[5] ) )
+		self.m_listCtrl3.SetForegroundColour( wx.Colour( colors[6] ) )
+		self.m_listCtrl4.SetForegroundColour( wx.Colour( colors[7] ) )
 
 		#configure-able
 		#color 0
@@ -317,9 +318,20 @@ class SLFrameOver(SLFrame1):
 	def hydrate_statics(self, my_displayed_lists):
 		i = 0
 		for sta in self.statics:
-			sta.SetName(my_displayed_lists[i])
-			sta.SetLabelText(my_displayed_lists[i])
+			name = my_displayed_lists[i]
+			self.set_static_text(sta, name)
 			i = i + 1
+
+	def set_static_text(self, sta, name):
+		margin = "    "
+		if len(name) < 36:
+			nice_name = margin + name + margin
+		else:
+			nice_name = name
+		while len(nice_name) < 36:
+			nice_name = nice_name + margin
+		sta.SetName(name)
+		sta.SetLabelText(nice_name)
 
 	def cb_item_selected(self, event):
 		combo = event.GetEventObject()
@@ -351,7 +363,7 @@ class SLFrameOver(SLFrame1):
 		my_lists = self.filer.main_dict["My Lists"]
 		list_id = cb.GetId() - 2000
 		new_list = self.filer.main_dict[cb.GetValue()]
-		self.statics[list_id - 1].SetLabelText(cb.GetValue())
+		self.set_static_text(self.statics[list_id-1], cb.GetValue())
 		my_lists[list_id - 1] = cb.GetValue()
 		clear_ctrl(controls[list_id - 1])
 		hydrate_ctrl(controls[list_id - 1], new_list)
