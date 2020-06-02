@@ -22,13 +22,21 @@
 #
 
 import wx
-
 from SLLists import SLLists
 
-app = wx.App()
 
-superlist = SLLists()
-superlist.engage()
+class SeansList0:
 
-app.MainLoop()
+    def main(self):
+        app = wx.App()
+
+        superlist = SLLists()
+        superlist.engage()
+
+        app.MainLoop()
+
+
+s = SeansList0()
+s.main()
+
 

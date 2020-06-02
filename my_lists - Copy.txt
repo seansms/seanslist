@@ -1,0 +1,8 @@
+Akamai,DR,Monopoly,Search,Elevaate,OMS,APIM,
+boot up 3,boot up 2,boot up 1,boot up,get medicine,wake up,
+INC,CHG,MDCE,DDOPS,DST,ALS,PRB,PTASK,
+,
+Read,Study,Practice,Write,Dream,
+option to delete entry,backspace also deletes,read lists from other sources,integrate with neo4j,one row per date archive,move items from list2list,share a list,collapse and grow lists,
+www.,
+work out,

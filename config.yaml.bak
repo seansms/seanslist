@@ -13,7 +13,7 @@
 - append_mode: a
 - my_lists_version: My Lists v0.1
 - AllList: all_list_names
-- color_lists_palette: george_palette
+- color_lists_palette: default_palette
 - available_palettes:
   - default_palette
   - hotdog_palette
@@ -23,7 +23,7 @@
   - crisp_palette
   - system_palette
   - grey_palette
-  - george_palette
+  - surf_palette
 - default_palette:
   - '#375E97'
   - '#FB6542'
@@ -96,7 +96,7 @@
   - white
   - white
   - white
-- george_palette:
+- surf_palette:
   - '#F4CC70'
   - '#DE7A22'
   - '#20948B'

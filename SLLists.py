@@ -20,6 +20,7 @@ from SLFiler import SLFiler
 from SLFrameOver import SLFrameOver
 from SLControl import SLControl
 
+
 class SLLists:
 
     def __init__(self):
@@ -34,16 +35,14 @@ class SLLists:
     def engage(self):
         # import lists
         filer = SLFiler()
-        filer.main_dict = filer.get_main_dict()
+
+        filer.main_dict = filer.get_main_dict(SLControl.my_lists_filename, SLControl.my_lists_version, SLControl.AllList)
 
         k = filer.main_dict[SLControl.AllList]
         my_combos = [k, k, k, k]
         my_displayed_list_names = filer.main_dict["My Lists"]
 
         # my_combos = filer.get_my_lists(SLControl.my_combos_filename, SLControl.my_combos_version)
-
-        if __debug__:
-            logging.info(filer.main_dict)
 
         self.frame = SLFrameOver(None)
         self.frame.filer = filer
