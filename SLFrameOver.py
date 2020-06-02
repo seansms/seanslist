@@ -17,7 +17,7 @@
 # -*- coding: utf-8 -*-
 
 ###########################################################################
-## Class SLFrameOver - Override of SLFrame
+# Class SLFrameOver - Override of SLFrame
 ###########################################################################
 import wx
 import wx.xrc
