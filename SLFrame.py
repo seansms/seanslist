@@ -102,29 +102,29 @@ class SLFrame1 ( wx.Frame ):
 		fgSizer3.Add( self.m_listCtrl4, 0, wx.ALIGN_LEFT|wx.ALL|wx.EXPAND, 0 )
 		
 		m_comboBox1Choices = []
-		self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, u"switch list here", wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox1Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox1Choices, wx.CB_READONLY|wx.NO_BORDER )
 		self.m_comboBox1.SetSelection( 0 )
 		self.m_comboBox1.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
-		self.m_comboBox1.SetBackgroundColour( wx.Colour( "#FF8080" ) )
-
+		self.m_comboBox1.SetBackgroundColour( wx.Colour( 255, 128, 128 ) )
+		
 		fgSizer3.Add( self.m_comboBox1, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
 		
 		m_comboBox2Choices = []
-		self.m_comboBox2 = wx.ComboBox( self, wx.ID_ANY, u"switch list here", wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox2Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox2 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox2Choices, wx.CB_READONLY|wx.NO_BORDER )
 		self.m_comboBox2.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
 		self.m_comboBox2.SetBackgroundColour( wx.Colour( 255, 255, 128 ) )
 		
 		fgSizer3.Add( self.m_comboBox2, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
 		
 		m_comboBox3Choices = []
-		self.m_comboBox3 = wx.ComboBox( self, wx.ID_ANY, u"change list here", wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox3Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox3 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox3Choices, wx.CB_READONLY|wx.NO_BORDER )
 		self.m_comboBox3.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
 		self.m_comboBox3.SetBackgroundColour( wx.Colour( 128, 255, 128 ) )
 		
 		fgSizer3.Add( self.m_comboBox3, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
 		
 		m_comboBox4Choices = []
-		self.m_comboBox4 = wx.ComboBox( self, wx.ID_ANY, u"change list here", wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox4Choices, wx.CB_READONLY|wx.NO_BORDER )
+		self.m_comboBox4 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 160,-1 ), m_comboBox4Choices, wx.CB_READONLY|wx.NO_BORDER )
 		self.m_comboBox4.SetForegroundColour( wx.Colour( 0, 0, 0 ) )
 		self.m_comboBox4.SetBackgroundColour( wx.Colour( 128, 255, 255 ) )
 		

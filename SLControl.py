@@ -17,6 +17,19 @@
 from typing import Dict, List, Any, Union, Hashable
 from SLFiler import SLFiler
 from initialize import Initialize
+from setup_formOver import OptionsFrameOver1
+import wx
+
+
+def wizard():
+    try:
+        app = wx.App()
+        s = OptionsFrameOver1(None)
+        s.Show(True)
+        app.MainLoop()
+    except:
+        init = Initialize()
+        init.save_config("me")
 
 
 class SLControl:
@@ -29,8 +42,11 @@ class SLControl:
             print('file not found config.yaml - could be first time initialization')
             i_c = Initialize()
             i_b = i_c.initialized()
-            while not i_b:
-                i_b = i_c.setup()
+            # while not i_b:
+            #    i_b = i_c.setup()
+            print("A100")
+            if not i_b:
+                wizard()
             _cache_list = filer.load_config_yaml()
         except FileNotFoundError:
             print('file not found for the owner, make new files')
@@ -38,19 +54,38 @@ class SLControl:
             try:
                 unchecked_owner = filer.get_owner()
                 i_b = i_c.save_config(unchecked_owner)
-                while not i_b:
-                    i_b = i_c.setup()
+                # while not i_b:
+                #    i_b = i_c.setup()
+                if not i_b:
+                    wizard()
+                print("A200")
                 _cache_list = filer.load_config_yaml()
             except FileNotFoundError:
                 print('file not found config.yaml again? - could be first time initialization')
                 i_c = Initialize()
                 i_b = i_c.initialized()
-                while not i_b:
-                    i_b = i_c.setup()
-                _cache_list = filer.load_config_yaml()
+                print("A300")
+#                while not i_b:
+#                    i_b = i_c.setup()
+                if not i_b:
+                    wizard()
+                b = False
+                i = 5
+                while not b and i > 1:
+                    try:
+                        _cache_list = filer.load_config_yaml()
+                        b = True
+                    except FileNotFoundError:
+                        i = i - 1
+                        if i > 1:
+                            wizard()
+                        else:
+                            print('No owner name given.  Try again.')
+                            exit()
 
     if _cache_list is None:
         print('problem loading config values into cache')
+        exit()
     _cache = {}
     for t in _cache_list:
         for k, v in t.items():
@@ -89,4 +124,3 @@ class SLControl:
     except:
         p = _cache_list[defaultPalette]
     color_scheme = p
-

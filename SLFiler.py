@@ -106,7 +106,7 @@ class SLFiler:
 
 	def save_values(self, changed_dic, filename1, file_version, backups):
 		filename = self.prepare_filename(filename1)
-		self.backup_files(filename, file_version, backups)
+		self.backup_files(filename1, file_version, backups)
 		for key in changed_dic:
 			self.main_dict[str(key).strip()] = changed_dic[key]
 		with open(filename, self.write_to_file) as f:
@@ -186,7 +186,7 @@ class SLFiler:
 		try:
 			shutil.copyfile(file, file+".bak")
 		except FileNotFoundError:
-			# file doesn't exist
+			print('warning: file does not exist')
 			return False
 
 		with open(file, self.read_from_file) as f:
@@ -194,6 +194,7 @@ class SLFiler:
 				filename = word
 				break
 		file = filename
+		file = self.prepare_filename(file)
 		try:
 			shutil.copyfile(file, file+".bak")
 		except FileNotFoundError:

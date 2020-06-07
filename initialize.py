@@ -29,15 +29,13 @@ class Initialize:
     def initialized(self):
         file_name = "config.yaml"
         config_exists = self.filer.check_config(file_name)
-        if not config_exists:
-            x = self.setup()
-            return x
-        return True
+        return config_exists
 
-    def setup(self):
-        print("What is the owner name [default=my]? (less than 13 chars)")
-        owner = input()
-        return self.save_config(owner)
+#    def setup(self):
+
+        # print("What is the owner name [default=my]? (less than 13 chars)")
+        # owner = input()
+        #return self.save_config(owner)
 
     def save_config(self, owner):
         x = self.validate(owner)

@@ -25,6 +25,7 @@ class SLLists:
 
     def __init__(self):
         self.frame = None
+        self.wizard = None
 
     def get_combos_from_lists(self, my_lists):
         c = []

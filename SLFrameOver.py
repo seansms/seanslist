@@ -32,13 +32,11 @@ def clear_ctrl(ctrl):
     while ctrl.ItemCount > 0:
         ctrl.DeleteItem(0)
 
-
 def hydrate_ctrl(ctrl1, list1):
     position = 0  # the position in the list
     for word in list1:
         ctrl1.InsertItem(position, word)
         position = position + 1
-
 
 def hydrate_object(controls, lists, list_at_a_time):
     i = 0

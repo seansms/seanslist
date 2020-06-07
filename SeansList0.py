@@ -31,6 +31,7 @@ class SeansList0:
         app = wx.App()
 
         superlist = SLLists()
+
         superlist.engage()
 
         app.MainLoop()
@@ -38,5 +39,3 @@ class SeansList0:
 
 s = SeansList0()
 s.main()
-
-
