@@ -18,11 +18,13 @@ from typing import Dict, List, Any, Union, Hashable
 import shutil
 import os
 import yaml
+from SLFilerLL import SLFilerLL
 
 
 class SLFiler:
 
 	def __init__(self):
+
 		self.read_from_file = 'r'
 		self.write_to_file = 'w'
 		self.comma = ','
@@ -30,6 +32,7 @@ class SLFiler:
 		self.file_newline = '\n'
 		self.append_mode = 'a'
 		self.main_dict = None
+		self.low_level = SLFilerLL()
 		dir_path = os.environ['LOCALAPPDATA'] + '\\Seanslist'
 		if not os.path.isdir(dir_path):
 			# print('The directory is not present. Creating a new one..')
@@ -37,41 +40,21 @@ class SLFiler:
 		# else:
 			# print('The directory is present.')
 
-	@staticmethod
-	def prepare_filename(filename):
-		writable_file = os.path.join(os.environ['LOCALAPPDATA'], 'Seanslist', filename)
-		return writable_file
-
-# unused
-	def print_words(self, filename1):
-		filename = self.prepare_filename(filename1)
-		with open(filename, self.read_from_file) as f:
-			for line in f:
-				words = line.split(self.comma)
-				for w in words:
-					print(w)
-				print()
-
-	def get_last_line(self, filename1):
-		filename = self.prepare_filename(filename1)
-		last_line = ""
+	def get_last_line_in_achievements(self, achievements, filename):
 		try:
-			with open(filename, self.read_from_file) as f:
-				for line in f:
-					last_line = line
-			return last_line
+			return self.low_level.get_last_line(filename)
 		except FileNotFoundError:
-			shutil.copyfile('my_achievements.txt', filename)
-			with open(filename, self.read_from_file) as f:
-				for line in f:
-					last_line = line
-			return last_line
+			try:
+				self.low_level.copy_file_base_to_local(achievements, filename)
+				return self.low_level.get_last_line(filename)
+			except:
+				print("failed copying achievements")
+				return ""
 
-	def get_my_lists(self, filename1, validation_string):
-		filename = self.prepare_filename(filename1)
+	def get_my_lists(self, filename, validation_string):
 		my_lists = []
 		i = 0
-		with open(filename, self.read_from_file) as f:
+		with self.low_level.open_file_read(filename) as f:
 			for line in f:
 				if line.startswith("#"):  # is a comment
 					continue
@@ -79,7 +62,7 @@ class SLFiler:
 					if line.strip() == validation_string:
 						i = i + 1
 						continue
-					print("Not a valid my lists file, expected v0.0")
+					print("Not a valid my lists file, expected v0.1")
 					break
 				else:
 					new_list = []
@@ -96,20 +79,11 @@ class SLFiler:
 					my_lists.append(new_list)
 		return my_lists
 
-	# unused
-	@staticmethod
-	def print_lists(my_lists):
-		for next_list in my_lists:
-			for word in next_list:
-				print(word)
-			print()
-
-	def save_values(self, changed_dic, filename1, file_version, backups):
-		filename = self.prepare_filename(filename1)
-		self.backup_files(filename1, file_version, backups)
+	def save_values(self, changed_dic, filename, file_version, backups):
+		self.backup_files(filename, file_version, backups)
 		for key in changed_dic:
 			self.main_dict[str(key).strip()] = changed_dic[key]
-		with open(filename, self.write_to_file) as f:
+		with self.low_level.open_file_write(filename) as f:
 			f.write("My Lists v0.1")
 			f.write(self.file_newline)
 			for key in self.main_dict:
@@ -123,29 +97,30 @@ class SLFiler:
 				f.write(self.file_newline)
 		return 0
 
-	def backup_files(self, filename1, file_version, backups):
-		print("file version:", file_version)
-		filename = self.prepare_filename(filename1)
-		file_names = []
-		file_names.insert(0, filename)
-		for file_name in backups:
-			file_names.insert(0, self.prepare_filename(file_name))
+	def backup_files(self, filename, backups):
+		backup_files = []
+		backup_files.insert(0, filename)
+		for backup_file in backups:
+			backup_files.insert(0, backup_file)
 		file1 = ""
-		for file_name in file_names:
+		for file_name in backup_files:
 			file2 = file1
 			file1 = file_name
+			# copy the second-to-last file to the last file, etc.
+			# but if the file is not found, then it is probably
+			# the first time, so copy the current file to all the backup
+			# file names
 			try:
 				if file2 != "":
-					shutil.copyfile(file1, file2)
+					self.low_level.copy_file_local_to_local(file1, file2)
 			except FileNotFoundError:
-				for file_name1 in backups:
-					shutil.copyfile(filename, self.prepare_filename(file_name1))
+				for backup_file in backups:
+					self.low_level.copy_file_local_to_local(filename, backup_file)
 				break
 		return 0
 
-	def append_values_to_file(self, ll, filename1, mode='a'):
-		filename = self.prepare_filename(filename1)
-		with open(filename, mode) as f:
+	def append_values_to_file(self, ll, filename):
+		with self.low_level.open_file_append(filename) as f:
 			next_comma = ","
 			for word in ll:
 				if word == "\n":
@@ -159,16 +134,21 @@ class SLFiler:
 					next_comma = ","
 		return 0
 
+	def copy_file_base_to_local(self, base_filename, filename):
+		self.low_level.copy_file_base_to_local(base_filename, filename)
+
 	def make_my_lists(self, my_filename):
-		filename = self.prepare_filename(my_filename)
-		shutil.copyfile('my_lists.txt', filename)
+		self.copy_file_base_to_local('my_lists.txt', my_filename)
 
 	def get_main_dict(self, my_lists_filename, my_lists_version, all_list):
+		my_lists = []
 		try:
 			my_lists = self.get_my_lists(my_lists_filename, my_lists_version)
 		except FileNotFoundError:
 			self.make_my_lists(my_lists_filename)
 			my_lists = self.get_my_lists(my_lists_filename, my_lists_version)
+		except:
+			print('get_main_dict unhandled exception')
 		d_my_lists = {}
 		all_list_keys = []
 		# get the retrieval type for each list
@@ -181,47 +161,44 @@ class SLFiler:
 		d_my_lists[all_list] = all_list_keys
 		return d_my_lists
 
-	def check_config(self, file_name):
-		file = self.prepare_filename(file_name)
+	def check_config(self, filename):
+		backup_filename = filename + ".bak"
 		try:
-			shutil.copyfile(file, file+".bak")
+			self.low_level.copy_file_local_to_local(filename, backup_filename)
 		except FileNotFoundError:
 			print('warning: file does not exist')
 			return False
-
-		with open(file, self.read_from_file) as f:
+		file = filename
+		with self.low_level.open_file_read(file) as f:
 			for word in f:
 				filename = word
 				break
-		file = filename
-		file = self.prepare_filename(file)
+		backup_filename = filename + ".bak"
 		try:
-			shutil.copyfile(file, file+".bak")
+			self.low_level.copy_file_local_to_local(filename, backup_filename)
 		except FileNotFoundError:
 			# file doesn't exist
+			print(filename + ', ' + backup_filename + ' do not exist')
 			return False
 		return True
 
 	def dump_yaml(self, filename, dict_file):
-		param = self.prepare_filename(filename)
-		with open(param, 'w') as file:
+		with self.low_level.open_file_write(filename) as file:
 			documents = yaml.dump(dict_file, file)
 		return documents
 
 	def load_config_yaml(self):
 		owner_name1 = self.get_owner()
 		_cache_list: Union[Union[Dict[Hashable, Any], List[Any], None], Any] = None
-		file_name2 = owner_name1 + "_config.yaml"
-		file_name2 = self.prepare_filename(file_name2)
-		with open(file_name2) as file2:
-			_cache_list = yaml.load(file2, yaml.FullLoader)
+		filename = owner_name1 + "_config.yaml"
+		with self.low_level.open_file_read(filename) as f:
+			_cache_list = yaml.load(f, yaml.FullLoader)
 		return _cache_list
 
 	def get_owner(self):
 		_owner: Union[Union[Dict[Hashable, Any], List[Any], None], Any] = None
-		file_name = r'config.yaml'
-		file_name = self.prepare_filename(file_name)
-		with open(file_name) as file1:
-			_owner = yaml.load(file1, yaml.FullLoader)
+		filename = r'config.yaml'
+		with self.low_level.open_file_read(filename) as f:
+			_owner = yaml.load(f, yaml.FullLoader)
 			owner_name = _owner["owner"]
 		return str(owner_name)

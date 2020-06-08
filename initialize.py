@@ -105,15 +105,15 @@ class Initialize:
         # create the lists file and backups if they don't exist
         for k, v in my_file.items():
             if not os.path.exists(v):
-                shutil.copyfile("my_lists.txt", v)
+                self.filer.copy_file_base_to_local("my_lists.txt", v)
 
         for f in my_file_backups:
             if not os.path.exists(f):
-                shutil.copyfile("my_lists.txt", f)
+                self.filer.copy_file_base_to_local("my_lists.txt", f)
 
         for k, v in my_achievements_file.items():
             if not os.path.exists(v):
-                shutil.copyfile("my_achievements.txt", v)
+                self.filer.copy_file_base_to_local("my_achievements.txt", v)
         return True
 
     def validate(self, xx):

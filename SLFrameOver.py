@@ -79,14 +79,13 @@ def archive(archive_list, filename):
     filer = SLFiler()
     filer.append_values_to_file(archive_list, filename)
 
-
 def get_last_date_archived(filename):
     # same as the last row first word
     t_now = date.today()
     s_now = t_now.strftime("%y-%m-%d")
     last_date_archived = s_now
     filer = SLFiler()
-    line = filer.get_last_line(filename)
+    line = filer.get_last_line_in_achievements('my_achievements.txt', filename)
     words = line.split(SLControl.comma)
     for w in words:
         last_date_archived = w
