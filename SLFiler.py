@@ -80,7 +80,7 @@ class SLFiler:
 		return my_lists
 
 	def save_values(self, changed_dic, filename, file_version, backups):
-		self.backup_files(filename, file_version, backups)
+		self.backup_files(filename, backups)
 		for key in changed_dic:
 			self.main_dict[str(key).strip()] = changed_dic[key]
 		with self.low_level.open_file_write(filename) as f:
