@@ -23,10 +23,10 @@ import wx
 import wx.xrc
 
 from datetime import date
-from SLFrame import SLFrame1
+from SLFrame import SLFrame1, NewListFrame
 from SLFiler import SLFiler
 from SLControl import SLControl
-
+from NewListFrameOver import NewListFrameOver
 
 def clear_ctrl(ctrl):
     while ctrl.ItemCount > 0:
@@ -109,6 +109,8 @@ class SLFrameOver(SLFrame1):
     def __init__(self, parent):
 
         SLFrame1.__init__(self, parent)
+        self.newListFrame = NewListFrameOver(self)
+        self.newListFrame.Hide()
         # Color scheme
         colors = SLControl.color_scheme
         # foregraound colors
@@ -236,7 +238,14 @@ class SLFrameOver(SLFrame1):
         if __debug__:
             print("on_close")
         self.save_if_needed(event)
-        event.Skip()
+        if self.newListFrame is None:
+            event.Skip()
+        else:
+            try:
+                self.newListFrame.Close()
+            finally:
+                event.Skip()
+
 
     def on_list_key_down(self, event):
         keycode = event.GetKeyCode()
@@ -353,6 +362,20 @@ class SLFrameOver(SLFrame1):
                                SLControl.my_lists_backups)
         return 0
 
+    def re_save_mylists_plus_new(self, ctrls, new_list_name):
+        refresh_dic = {}
+        ll = build_list_of_lists_from_ctrls(ctrls)
+        i = 0
+        for s in self.statics:
+            refresh_dic[s.GetLabelText()] = ll[i]
+            i = i + 1
+        refresh_dic[new_list_name] = []
+        self.filer.save_values(refresh_dic, SLControl.my_lists_filename, SLControl.my_lists_version,
+                               SLControl.my_lists_backups)
+        self.re_engage()
+        return 0
+
+
     def on_combo_box(self, event):
         controls = self.ctrls
         cb = event.GetEventObject()
@@ -365,3 +388,16 @@ class SLFrameOver(SLFrame1):
         hydrate_ctrl(controls[list_id - 1], new_list)
         self.re_save_mylists(controls)
         event.Skip()
+
+    def on_click_newlist( self, event ):
+        self.re_save_mylists(self.ctrls)
+        self.newListFrame.Show()
+
+    def re_engage(self):
+        # import lists
+        filer = SLFiler()
+        filer.main_dict = filer.get_main_dict(SLControl.my_lists_filename, SLControl.my_lists_version, SLControl.AllList)
+        k = filer.main_dict[SLControl.AllList]
+        my_combos = [k, k, k, k]
+        my_displayed_list_names = filer.main_dict["My Lists"]
+        self.hydrate_combos(my_combos, my_displayed_list_names)

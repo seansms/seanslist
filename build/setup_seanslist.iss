@@ -15,7 +15,7 @@ AppSupportURL=https://github.com/seansms/seanslist/wiki
 AppUpdatesURL=https://github.com/seansms/seanslist/wiki
 DefaultDirName={pf}\Sean's Super List
 DefaultGroupName=Sean's Super List
-LicenseFile=C:\Users\sean\Documents\code\projects\seanslist\work\COPYING
+LicenseFile=COPYING
 OutputBaseFilename=setup_seanslist
 Compression=lzma
 SolidCompression=yes
@@ -24,16 +24,12 @@ SolidCompression=yes
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\sean\Documents\code\projects\seanslist\work\build\SeansList0.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\sean\Documents\code\projects\seanslist\work\build\my_achievements.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\sean\Documents\code\projects\seanslist\work\build\my_lists.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\sean\Documents\code\projects\seanslist\work\build\python37.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\sean\Documents\code\projects\seanslist\work\build\lib\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\sean\Documents\code\projects\seanslist\work\build\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{group}\Sean's Super List"; Filename: "{app}\SeansList0.exe"
-Name: "{commondesktop}\Sean's Super List"; Filename: "{app}\SeansList0.exe"; Tasks: desktopicon
+Name: "{group}\Sean's Super List"; Filename: "myapp.ico"
+Name: "{commondesktop}\Sean's Super List"; Filename: "SeansList0.exe"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\SeansList0.exe"; Description: "{cm:LaunchProgram,Sean's Super List}"; Flags: nowait postinstall skipifsilent

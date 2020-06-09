@@ -17,7 +17,7 @@ import wx.xrc
 class SLFrame1 ( wx.Frame ):
 	
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Sean's Lists", pos = wx.DefaultPosition, size = wx.Size( 651,525 ), style = wx.DEFAULT_FRAME_STYLE|wx.NO_BORDER|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Sean's Lists", pos = wx.DefaultPosition, size = wx.Size( 651,540 ), style = wx.DEFAULT_FRAME_STYLE|wx.NO_BORDER|wx.TAB_TRAVERSAL )
 		
 		self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
 		self.SetBackgroundColour( wx.Colour( 112, 112, 112 ) )
@@ -130,12 +130,10 @@ class SLFrame1 ( wx.Frame ):
 		
 		fgSizer3.Add( self.m_comboBox4, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_LEFT|wx.EXPAND, 0 )
 		
-		self.m_button1 = wx.Button( self, wx.ID_ANY, u"Archive", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_button1 = wx.Button( self, wx.ID_ANY, u"Achieve", wx.DefaultPosition, wx.DefaultSize, 0 )
 		fgSizer3.Add( self.m_button1, 0, wx.ALL, 5 )
 		
-		self.m_button2 = wx.Button( self, wx.ID_ANY, u"Action 2", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_button2.Hide()
-		
+		self.m_button2 = wx.Button( self, wx.ID_ANY, u"New List", wx.DefaultPosition, wx.DefaultSize, 0 )
 		fgSizer3.Add( self.m_button2, 0, wx.ALL, 5 )
 		
 		self.m_button3 = wx.Button( self, wx.ID_ANY, u"MyButton", wx.DefaultPosition, wx.DefaultSize, 0 )
@@ -177,6 +175,7 @@ class SLFrame1 ( wx.Frame ):
 		self.m_comboBox3.Bind( wx.EVT_COMBOBOX, self.on_combo_box )
 		self.m_comboBox4.Bind( wx.EVT_COMBOBOX, self.on_combo_box )
 		self.m_button1.Bind( wx.EVT_BUTTON, self.on_click_archive )
+		self.m_button2.Bind( wx.EVT_BUTTON, self.on_click_newlist )
 	
 	def __del__( self ):
 		pass
@@ -219,6 +218,65 @@ class SLFrame1 ( wx.Frame ):
 	
 	
 	def on_click_archive( self, event ):
+		event.Skip()
+	
+	def on_click_newlist( self, event ):
+		event.Skip()
+	
+
+###########################################################################
+## Class NewListFrame
+###########################################################################
+
+class NewListFrame ( wx.Frame ):
+	
+	def __init__( self, parent ):
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 314,288 ), style = wx.FRAME_FLOAT_ON_PARENT|wx.FRAME_NO_TASKBAR|wx.FRAME_TOOL_WINDOW|wx.TAB_TRAVERSAL, name = u"NewListWindow" )
+		
+		self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+		self.Hide()
+		
+		bSizer1 = wx.BoxSizer( wx.VERTICAL )
+		
+		self.m_staticText5 = wx.StaticText( self, wx.ID_ANY, u"Create New List", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText5.Wrap( -1 )
+		self.m_staticText5.SetFont( wx.Font( 24, 70, 90, 90, False, wx.EmptyString ) )
+		
+		bSizer1.Add( self.m_staticText5, 0, wx.ALL, 5 )
+		
+		self.m_staticText6 = wx.StaticText( self, wx.ID_ANY, u"List Name", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText6.Wrap( -1 )
+		bSizer1.Add( self.m_staticText6, 0, wx.ALL, 5 )
+		
+		self.m_textCtrl_NewListName = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_PROCESS_ENTER )
+		self.m_textCtrl_NewListName.SetMaxLength( 12 ) 
+		bSizer1.Add( self.m_textCtrl_NewListName, 0, wx.ALL, 5 )
+		
+		self.m_buttonSubmit = wx.Button( self, wx.ID_ANY, u"Submit", wx.DefaultPosition, wx.DefaultSize, 0 )
+		bSizer1.Add( self.m_buttonSubmit, 0, wx.ALL, 5 )
+		
+		self.m_button6 = wx.Button( self, wx.ID_ANY, u"Cancel", wx.DefaultPosition, wx.DefaultSize, 0 )
+		bSizer1.Add( self.m_button6, 0, wx.ALL, 5 )
+		
+		
+		self.SetSizer( bSizer1 )
+		self.Layout()
+		
+		self.Centre( wx.BOTH )
+		
+		# Connect Events
+		self.m_buttonSubmit.Bind( wx.EVT_BUTTON, self.on_click_add_newlist )
+		self.m_button6.Bind( wx.EVT_BUTTON, self.on_click_cancel_newlist )
+	
+	def __del__( self ):
+		pass
+	
+	
+	# Virtual event handlers, overide them in your derived class
+	def on_click_add_newlist( self, event ):
+		event.Skip()
+	
+	def on_click_cancel_newlist( self, event ):
 		event.Skip()
 	
 
