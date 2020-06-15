@@ -45,7 +45,10 @@ The first line of my_lists.txt must be "My Lists v0.1" or the program will not l
 Every list is a comma separated WITHOUT quotation marks.  Each list's first item must be: "Local" followed by a comma,
 then the list name.  Copy blank_lists.txt to <owner>_lists.txt and restart to start with blank lists.
 
-Sean's SuperList 0_9 supports many lists.
+Sean's SuperList 0_9 supports many lists.  You can create new lists by pressing the new list button.  You can rename a list by double-clicking the list name and submitting the popup.  You cannot delete a list through the interface.
+
+To delete a list, make sure the list is not one of the lists in the display.  Open the <owner>_lists.txt file with a text editor like notepad++ and delete the line with the list you want to delete.
+Save the text file, stop Sean's Super List and start it up again.
 
 By default, semicolons are translated from the file to a comma in the list, allowing for commas in the text.  Ask support if you need to change this.
 
