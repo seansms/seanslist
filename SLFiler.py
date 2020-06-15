@@ -15,7 +15,6 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 from typing import Dict, List, Any, Union, Hashable
-import shutil
 import os
 import yaml
 from SLFilerLL import SLFilerLL
@@ -81,20 +80,33 @@ class SLFiler:
 
 	def save_values(self, changed_dic, filename, file_version, backups):
 		self.backup_files(filename, backups)
+		old_key = ""
 		for key in changed_dic:
-			self.main_dict[str(key).strip()] = changed_dic[key]
+			if len(changed_dic[key]) == 1 and changed_dic[key].pop() == "remove0evomer":
+				self.main_dict.pop(key)
+				old_key = key
+			else:
+				self.main_dict[key] = changed_dic[key]
+		if old_key != "":
+			changed_dic.pop(old_key)
 		with self.low_level.open_file_write(filename) as f:
 			f.write("My Lists v0.1")
 			f.write(self.file_newline)
 			for key in self.main_dict:
 				method = "Local,"
 				f.write(method)
-				f.write(str(key).strip())
+				f.write(key)
 				# c = len(self.main_dict[key])
-				for w in self.main_dict[key]:
-					f.write(self.comma)
-					f.write(w.replace(self.comma, self.comma_substitution_char).strip())
-				f.write(self.file_newline)
+				if key == "My Lists":
+					for w in changed_dic:
+						f.write(self.comma)
+						f.write(w.replace(self.comma, self.comma_substitution_char).strip())
+					f.write(self.file_newline)
+				else:
+					for w in self.main_dict[key]:
+						f.write(self.comma)
+						f.write(w.replace(self.comma, self.comma_substitution_char).strip())
+					f.write(self.file_newline)
 		return 0
 
 	def backup_files(self, filename, backups):

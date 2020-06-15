@@ -154,6 +154,10 @@ class SLFrame1 ( wx.Frame ):
 		
 		# Connect Events
 		self.Bind( wx.EVT_CLOSE, self.on_close )
+		self.m_staticText1.Bind( wx.EVT_LEFT_DCLICK, self.on_click_rename_popup )
+		self.m_staticText2.Bind( wx.EVT_LEFT_DCLICK, self.on_click_rename_popup )
+		self.m_staticText3.Bind( wx.EVT_LEFT_DCLICK, self.on_click_rename_popup )
+		self.m_staticText4.Bind( wx.EVT_LEFT_DCLICK, self.on_click_rename_popup )
 		self.m_textCtrl1.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
 		self.m_textCtrl2.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
 		self.m_textCtrl3.Bind( wx.EVT_TEXT_ENTER, self.add_item_to_list )
@@ -184,6 +188,12 @@ class SLFrame1 ( wx.Frame ):
 	# Virtual event handlers, overide them in your derived class
 	def on_close( self, event ):
 		event.Skip()
+	
+	def on_click_rename_popup( self, event ):
+		event.Skip()
+	
+	
+	
 	
 	def add_item_to_list( self, event ):
 		event.Skip()
@@ -277,6 +287,64 @@ class NewListFrame ( wx.Frame ):
 		event.Skip()
 	
 	def on_click_cancel_newlist( self, event ):
+		event.Skip()
+	
+
+###########################################################################
+## Class RenameListFrame
+###########################################################################
+
+class RenameListFrame ( wx.Frame ):
+	
+	def __init__( self, parent ):
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 500,300 ), style = wx.FRAME_FLOAT_ON_PARENT|wx.FRAME_NO_TASKBAR|wx.FRAME_TOOL_WINDOW|wx.TAB_TRAVERSAL )
+		
+		self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+		
+		bSizer2 = wx.BoxSizer( wx.VERTICAL )
+		
+		self.m_staticText7 = wx.StaticText( self, wx.ID_ANY, u"Rename List", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText7.Wrap( -1 )
+		self.m_staticText7.SetFont( wx.Font( 24, 70, 90, 90, False, wx.EmptyString ) )
+		
+		bSizer2.Add( self.m_staticText7, 0, wx.ALL, 5 )
+		
+		self.m_staticText9 = wx.StaticText( self, wx.ID_ANY, u"Current Name:", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText9.Wrap( -1 )
+		bSizer2.Add( self.m_staticText9, 0, wx.ALL, 5 )
+		
+		self.m_staticTextRename = wx.StaticText( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticTextRename.Wrap( -1 )
+		bSizer2.Add( self.m_staticTextRename, 0, wx.ALL, 5 )
+		
+		self.m_textCtrl_rename = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+		bSizer2.Add( self.m_textCtrl_rename, 0, wx.ALL, 5 )
+		
+		self.m_button7 = wx.Button( self, wx.ID_ANY, u"Rename", wx.DefaultPosition, wx.DefaultSize, 0 )
+		bSizer2.Add( self.m_button7, 0, wx.ALL, 5 )
+		
+		self.m_button8 = wx.Button( self, wx.ID_ANY, u"Cancel", wx.DefaultPosition, wx.DefaultSize, 0 )
+		bSizer2.Add( self.m_button8, 0, wx.ALL, 5 )
+		
+		
+		self.SetSizer( bSizer2 )
+		self.Layout()
+		
+		self.Centre( wx.BOTH )
+		
+		# Connect Events
+		self.m_button7.Bind( wx.EVT_BUTTON, self.on_click_rename )
+		self.m_button8.Bind( wx.EVT_BUTTON, self.on_click_cancel_rename )
+	
+	def __del__( self ):
+		pass
+	
+	
+	# Virtual event handlers, overide them in your derived class
+	def on_click_rename( self, event ):
+		event.Skip()
+	
+	def on_click_cancel_rename( self, event ):
 		event.Skip()
 	
 

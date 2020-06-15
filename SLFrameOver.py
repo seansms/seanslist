@@ -27,6 +27,7 @@ from SLFrame import SLFrame1, NewListFrame
 from SLFiler import SLFiler
 from SLControl import SLControl
 from NewListFrameOver import NewListFrameOver
+from RenameListFrameOver import RenameListFrameOver
 
 def clear_ctrl(ctrl):
     while ctrl.ItemCount > 0:
@@ -111,6 +112,9 @@ class SLFrameOver(SLFrame1):
         SLFrame1.__init__(self, parent)
         self.newListFrame = NewListFrameOver(self)
         self.newListFrame.Hide()
+        self.RenameListFrame = RenameListFrameOver(self)
+        self.RenameListFrame.Hide()
+
         # Color scheme
         colors = SLControl.color_scheme
         # foregraound colors
@@ -329,13 +333,14 @@ class SLFrameOver(SLFrame1):
             i = i + 1
 
     def set_static_text(self, sta, name):
-        margin = "    "
-        if len(name) < 36:
-            nice_name = margin + name + margin
-        else:
-            nice_name = name
-        while len(nice_name) < 36:
-            nice_name = nice_name + margin
+#        margin = "    "
+#        if len(name) < 36:
+#            nice_name = margin + name + margin
+#        else:
+#            nice_name = name
+#        while len(nice_name) < 36:
+#            nice_name = nice_name + margin
+        nice_name = name
         sta.SetName(name)
         sta.SetLabelText(nice_name)
 
@@ -366,10 +371,17 @@ class SLFrameOver(SLFrame1):
         refresh_dic = {}
         ll = build_list_of_lists_from_ctrls(ctrls)
         i = 0
+        last_column_name = ""
+        last_column_id = i
         for s in self.statics:
             refresh_dic[s.GetLabelText()] = ll[i]
+            last_column_id = i
             i = i + 1
+            last_column_name = s.GetLabelText()
+        refresh_dic.pop(last_column_name)
         refresh_dic[new_list_name] = []
+        self.statics[last_column_id].SetLabelText(new_list_name)
+        self.m_listCtrl4.ClearAll()
         self.filer.save_values(refresh_dic, SLControl.my_lists_filename, SLControl.my_lists_version,
                                SLControl.my_lists_backups)
         self.re_engage()
@@ -390,6 +402,7 @@ class SLFrameOver(SLFrame1):
         event.Skip()
 
     def on_click_newlist( self, event ):
+        # backup the current lists, then display the popup
         self.re_save_mylists(self.ctrls)
         self.newListFrame.Show()
 
@@ -401,3 +414,38 @@ class SLFrameOver(SLFrame1):
         my_combos = [k, k, k, k]
         my_displayed_list_names = filer.main_dict["My Lists"]
         self.hydrate_combos(my_combos, my_displayed_list_names)
+
+    def on_click_rename_popup( self, event ):
+        list_name = event.GetEventObject().GetLabel()
+        self.RenameListFrame.m_staticTextRename.SetLabelText(list_name)
+        self.RenameListFrame.Show()
+
+    def on_click_rename_cancel(self, event):
+        self.RenameListFrame.Close()
+
+    def re_save_mylists_plus_rename(self, ctrls, list_name, new_list_name):
+        refresh_dic = {}
+        ll = build_list_of_lists_from_ctrls(ctrls)
+        i = 0
+        remove_list_key = ""
+        for s in self.statics:
+            if s.GetLabelText() == list_name:
+                new_list = []
+                for item in ll[i]:
+                    new_list.append(item)
+                refresh_dic[new_list_name] = new_list
+                remove_list_key = list_name
+                s.SetLabelText(new_list_name)
+            else:
+                refresh_dic[s.GetLabelText()] = ll[i]
+            i = i + 1
+        if remove_list_key != "":
+            remove_list = ["remove0evomer"]
+            refresh_dic[remove_list_key] = remove_list
+            self.filer.save_values(refresh_dic, SLControl.my_lists_filename, SLControl.my_lists_version,
+                                   SLControl.my_lists_backups)
+            self.re_save_mylists(self.ctrls)
+            self.re_engage()
+            return 0
+        print("Error: No matching list found.")
+        return -1
