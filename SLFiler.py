@@ -82,9 +82,13 @@ class SLFiler:
 		self.backup_files(filename, backups)
 		old_key = ""
 		for key in changed_dic:
-			if len(changed_dic[key]) == 1 and changed_dic[key].pop() == "remove0evomer":
-				self.main_dict.pop(key)
-				old_key = key
+			if len(changed_dic[key]) == 1:
+				p = changed_dic[key][0]
+				if p == "remove0evomer":
+					self.main_dict.pop(key)
+					old_key = key
+				else:
+					self.main_dict[key] = changed_dic[key]
 			else:
 				self.main_dict[key] = changed_dic[key]
 		if old_key != "":
